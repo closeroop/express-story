@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= info.art_head%></title>
+    <link rel="stylesheet" href="./css/article.css">
+    <link rel="stylesheet" href="./css/com_header.css">     <!--导航样式表-->
+
+</head>
+<body>
+<div id="home_top">
+    <%- include com_header.ejs %>   <!--头部-->
+</div>
+<div id="main">
+    <div class="title"><h1><%= info.art_head%></h1></div>
+    <div class="author">
+        <a href="#" ><img class="user-img" src="./pic/user_tou/tou-2.jpg" alt="图片"></a>
+        <div class="author-info">
+            <a href=""><%= info.u_id%></a><a href="">+关注</a><br>
+            <span class="standard_time">time</span><span class="word">字数 </span><span>阅读 256</span>
+            <span>评论 <%=info.art_laud%></span><span>喜欢 <%=info.art_like%></span>
+            <span class="time" style="display: none"><%=info.art_id%></span>
+        </div>
+
+    </div>
+    <div class="article">
+        <%- articles %>          <!--文章内容-->
+    </div>
+</div>
+<div class="navigation">
+     <ul>
+         <li>TOP</li>   <!--回顶部-->
+     </ul>
+</div>
+<div class="big-pic">
+        <!--大图片展示-->
+</div>
+<div id="comment">
+    <div class="comment-all">
+        <div class="comment-text">
+            <img src="./pic/user_tou/tou-4.jpg" alt="me" class="my-head">
+            <textarea placeholder="写下你的评论" class="comment-word"></textarea>
+            <div class="comment-up">
+                <div class="comment-up-stop"></div>
+                <div class="comment-up-me" >发表</div>
+                <a href="javascript:">取消上传</a>
+                <div class="comment-up-animate" ></div>
+            </div>
+        </div>
+        <div class="comment-list">
+            <div class="comment-list-head">
+                <span>100条评论</span>
+                <div class="comment-list-head-sort">
+                    <a href="javascript:">按时间正序</a>
+                    <a href="javascript:">按时间倒序</a>
+                </div>
+            </div>
+            <!-- <div class="comment-list-custom">
+                 -<div class="comment-list-info">
+                      <img src="./pic/user_tou/tou-4.jpg" alt="s">
+                      <div class="comment-list-info-1">
+                          <span>YX</span><br>
+                          <span>2018</span>
+                          <a href="javascript:">回复 TA</a>
+                      </div>
+                      <div class="comment-list-info-2">
+                          你哈啊深蓝色!
+                      </div>
+                  </div>
+                 <div class="comment-list-back">   &lt;!&ndash;后期工作  回复的回复&ndash;&gt;
+                     <a href="javascript:">Yx </a>:<a href="javascript:"> @Yw </a>
+                     <span> 你说神马</span><br>
+                     <span>2018-2-33</span>
+                 </div>
+            </div> --><!--评论部分模板-->
+            <div class="no-comment">
+                还没有人评论哦！沙发(〃'▽'〃)
+            </div>
+            <div class="comment-page">
+                <button class="page-pre" >上一页</button>
+                <div class="page-num">
+                    <button class="page-count" >1</button><!--9ye-->
+                </div>
+                <button class="page-next">下一页</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/article.js"></script>
+</html>

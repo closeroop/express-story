@@ -1,0 +1,49 @@
+<div id="show_art">
+    <!--     ................................................................-->
+    <% for(let i in artData){ %>
+    <div class="article">      <!--文章-->
+        <div class="art_header">   <!--第一部分  -->
+            <div class="user_tou">
+                <!--头像-->
+                <a href="/user/<%=artData[i].u_id%>"></a>
+            </div>
+            <span class="author"><a href="/user/<%=artData[i].u_id%>" target="_blank"><%=artData[i].u_id%></a></span>
+            <h3><a href="/art/<%= artData[i].art_id %>"  target="_blank"><%= artData[i].art_head %></a></h3>           <!--标题-->
+        </div>
+        <div class="art_info">  <!--第二部分 文章部分截取-->
+            <% if(artData[i].pic){ %>
+            <a href="/art/<%=artData[i].art_id %>" class="art_info_pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank"></a>
+            <% } %>
+            <p><%=artData[i].showart.slice(0,100)%>......</p>
+        </div>
+        <div class="art_footer"> <!--第三部分  喜欢 评论 浏览量-->
+            <div><a href="" class="art_foo_i">喜欢<span><%= artData[i].art_like %></span></a></div>
+            <div><a href="" class="art_foo_i">评论<span><%= artData[i].art_laud %></span></a></div>
+            <div><a href="" class="art_foo_i">浏览量<span>999+</span></a></div>
+        </div>
+    </div>
+  <% }%>
+    <!--     ................................................................-->
+   <!-- <div class="article">      &lt;!&ndash;文章&ndash;&gt;
+        <div class="art_header">   &lt;!&ndash;第一部分  用户头像 文章标题&ndash;&gt;
+            <div class="user_tou">
+
+            </div>
+            <span class="author"><a href="#">七月七</a></span>
+            <h3><a href="#">云想衣裳花想容</a></h3>
+        </div>
+        <div class="art_info">
+            <a href="" class="art_info_pic"><img src="./pic/user_tou/tou-2.jpg" alt="pic"></a>
+            <p> 依稀的记忆从前的你
+            背靠着背听海的声音
+            </p>
+        </div>
+        <div class="art_footer">
+            <div><a href="" class="art_foo_i">喜欢</a></div>
+            <div><a href="" class="art_foo_i">评论</a></div>
+            <div><a href="" class="art_foo_i">浏览量</a></div>
+        </div>
+    </div>-->
+    <div class="more">more</div>
+</div>
+

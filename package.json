@@ -1,0 +1,23 @@
+{
+  "name": "ran",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "y",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.1.0",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.1",
+    "multiparty": "^4.1.4",
+    "mysql": "^2.15.0",
+    "wangeditor": "^3.1.1"
+  }
+}

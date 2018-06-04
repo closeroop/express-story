@@ -1,0 +1,16 @@
+*{
+    margin: 0;padding: 0;
+}
+#home_top{
+    height: 50px;
+    position: fixed;width: 100%;
+    top:0;z-index: 999;
+}
+#home_mid {
+
+    max-width: 1440px; margin: 70px auto;
+}
+body{
+    background-color: rgba(241, 242, 246, 0.48);
+}
+

@@ -1,0 +1,117 @@
+#show_art{
+    width: 800px;
+    margin-left: 15%;
+    //background-color: #01abae;
+}
+@keyframes article-animate-left {
+    0%  { left:20px }
+    33%  {left: -10px}
+    100% { left: 0}
+}
+@keyframes article-animate-right {
+    0%   {left:-20px }
+    33%  {left: 10px}
+    100% { left: 0}
+}
+
+.article{
+    width: 650px;
+    //border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    box-shadow: 0 1px 1px 2px rgba(128, 128, 128, 0.4);
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.art_header{
+    height: 40px;
+    background-color: rgb(162, 155, 254);
+    border-radius: 5px;overflow: hidden;
+}
+.art_header:after{
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.art_info{
+    height: 130px;line-height: 22px;
+    padding: 10px 0 10px 10px;
+    word-wrap:break-word;word-break:break-all;letter-spacing: 2px;
+
+    //text-indent:32px;/*设置段前间距2个字  不好  后面图片会位移*/
+}
+.art_info p{
+    padding: 14px 0; color: rgba(51, 51, 51, 0.86);font-size: 14px;font-family: Arial;
+}
+.art_footer{
+    height: 30px;
+   // background-color: rgba(0, 75, 63, 0.7);
+}
+.user_tou{
+    height: 34px ;width: 34px;
+    background: url("../pic/user_tou/tou-2.jpg") center/cover no-repeat;
+    border-radius: 50%;float: left;
+    margin: 0 5px;border: 3px solid rgba(255, 255, 255, 0.5);
+    background-clip: content-box;
+}
+.user_tou a{
+    display: block;width: 100%;height: 100%;
+}
+.author{
+    float: left;
+}
+.author a{
+    font-size: 12px;margin: 0 0 0 2px;font-family: Lucida ;color: #2d3436;
+    line-height: 40px;text-decoration:none;
+}
+.art_header h3{
+    float:right;text-align: center;
+    /*background: linear-gradient(-45deg, rgba(128, 128, 128, 0.7) 25%, rgba(210, 210, 210, 0.7) 0, rgba(210, 210, 210, 0.7) 50%,
+                                        rgba(128, 128, 128, 0.7) 0,rgba(128, 128, 128, 0.7) 75%,rgba(210, 210, 210, 0.7) 0);*/
+}
+.art_header h3 a,.art_foo_i {
+    line-height: 40px;text-decoration:none;color: #3d3d3d;
+
+}
+.art_header h3 a{
+    max-width:450px;min-width:200px;display: block;color: rgba(255, 255, 255, 0.87);
+    background: linear-gradient(45deg, rgb(108, 92, 231) 20%, rgb(10, 189, 227));
+    position: relative;padding: 0 10px;
+
+}
+.art_header h3 a:after{
+    content: '';
+    display: block;
+    border: 14px solid transparent;
+    border-left-color: rgb(108, 92, 231);
+    border-bottom-color: rgb(108, 92, 231);
+    position: absolute;top:6px;left:-14px;
+    transform: rotate(45deg);
+}
+.author a:hover{
+    text-decoration:underline
+}
+.art_info_pic{
+    float: right;height: 130px;width: 160px;display: block;margin: 0 0 0 10px;border-radius: 5px;
+
+}
+.art_info_pic img{
+
+}
+.art_info p::first-letter{
+    margin-left: 32px;
+}
+.art_foo_i{
+    height: 100%;width: 15%;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
+    font-size: 14px;
+}
+.art_foo_i span{
+    font-size: 10px;padding-left: 5px;
+}
+/*.....................................................................................*/
+.more{
+    height: 50px;width: 50px;line-height: 50px;text-align: center;color: white;
+    background-color: #f4a720;position: fixed;bottom: 20px;right: 20px;cursor: pointer;
+}
+/*.....................................................................................*/

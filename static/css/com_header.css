@@ -1,0 +1,102 @@
+*{
+    margin: 0;padding: 0;
+}
+header{
+    height:50px;
+    box-shadow: 0 1px 1px 1px rgba(128, 128, 128, 0.29);
+    background-color: white;
+}
+#all{
+    padding: 0 16px;
+    max-width: 1440px;
+    margin: 0 auto;//background-color: rgba(35, 191, 72, 0.52);
+}
+ #left {
+    height: 50px;width: 100px;
+    float: left;//padding-right: 120px;
+}
+ #left span{
+    font-size:30px;line-height: 50px;color: #004b3f;font-weight: 600;
+}
+#middle{
+    float: left;width: calc(100% - 150px);margin-left: 50px;
+}
+
+#middle >ul:after,#right >ul:after,#all:after{
+     display: block;
+     content:'';
+     clear:both;
+}
+li{
+    list-style-type: none;
+}
+.head_nav, .right_nav{
+    float: left;font-size: 18px;line-height: 50px;padding: 0 15px;color: #4d4d4d;
+}
+.head_nav:hover, .right_nav:hover{
+    background-color: rgba(36, 35, 36, 0.1);cursor: pointer;transition: all .5s ;
+}
+.head_nav:last-child input{
+    height: 35px;outline: none;border: none;border-radius: 17px;
+    background-color: rgba(143, 152, 137, 0.2);width:150px;
+    padding-left: 15px;transition:all .5s ease-out;
+}
+.head_nav:last-child{
+    background-color:transparent ;
+}
+#search:focus{
+    width: 228px;
+    transition:all .5s;
+}
+ #right{
+     float: left;
+     margin-left: -240px;
+ }
+ .right_nav:last-child{
+    background-color: rgba(0, 95, 99, 0.64);color: white;border-radius:20px;height: 40px;line-height: 40px;
+     padding: 0 25px;margin: 5px 0;font-size: 16px;
+ }
+.mes_nav{
+     position: relative;padding: 0 18px 0 10px;
+ }
+.mes_nav:hover .mes{
+     height: 300px;
+    transition: all .8s ;box-shadow:0 0 3px 2px rgba(212, 202, 212, 0.53);
+}
+.mes{
+     left: 0;height: 0;overflow: hidden;
+     position: absolute;//display: none;transition: all .8s ;
+     width: 130px;background-color: rgba(255, 255, 255, 0.95);
+ }
+.mes li{
+    padding: 0 10px;
+}
+.mes li:hover{
+    background-color: rgba(36, 35, 36, 0.1);transition: all .2s ;
+}
+.mes li a,.right_nav a{
+    display: block;text-align: center;
+    text-decoration: none;color: inherit;
+}
+#user_come{
+    width: 40px;height: 40px;background: url("../pic/user_tou/tou-1.jpg") center/cover;
+    border-radius: 50%;margin-top: calc(50% - 15px);margin-bottom: 5px;
+}
+#user_come:after{
+    width: 0;height: 0;border: 5px solid grey;display: block;content: ' ';
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    position: absolute;top:calc(50% - 4px);right: 5px;
+    transition: transform 1s;transform-origin: 50% 75%;
+}
+.mes_nav:hover #user_come:after{
+    transform: rotate(180deg);
+    transform-origin: 50% 75%;
+    transition: transform 1s;
+}
+
+
+
+
+

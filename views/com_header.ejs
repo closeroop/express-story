@@ -1,0 +1,47 @@
+
+<header>
+    <div id="all">
+        <div id="left">
+            <span>然也</span>
+        </div>
+        <div id="middle">
+            <ul>
+                <li class="head_nav">发现</li>
+                <li class="head_nav">关注</li>
+                <li class="head_nav mes_nav ">消息
+                    <ul class="mes">
+                        <li><a href="#">评论</a></li>
+                        <li><a href="javascript:void()">星火</a></li>
+                        <li><a href="javascript:void()">喜欢和赞</a></li>
+                        <li><a href="javascript:void()">关注</a></li>
+                        <li><a href="javascript:void()">赞赏</a></li>
+                        <li><a href="javascript:void()">其他</a></li>
+                    </ul>
+                </li>
+                <li class="head_nav"><label><input type="search" placeholder="搜索" id="search" ></label></li>
+            </ul>
+        </div>
+        <div id="right">
+            <ul>
+                <li class="right_nav">Aa</li>
+                <li class="right_nav mes_nav">
+                    <% if(user!==null) { %>
+                    <div id="user_come"></div>
+                    <ul class="mes">
+                        <li><a href="javascript:void()">我的主页</a></li>
+                        <li><a href="javascript:void()">收藏的文章</a></li>
+                        <li><a href="javascript:void()">喜欢的文章</a></li>
+                        <li><a href="javascript:void()">帮助与反馈</a></li>
+                        <li><a href="javascript:void()">设置</a></li>
+                        <li><a href="/getout">退出</a></li>
+                    </ul>
+                    <% } else { %>
+                    <a href="/login">登录</a>
+                    <% } %>
+                </li>
+                <li class="right_nav"><a href="/writeArt">写文章</a></li>
+            </ul>
+        </div>
+    </div>
+
+</header>

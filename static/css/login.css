@@ -1,0 +1,108 @@
+
+*{
+  padding: 0;
+    margin: 0;
+}
+body,html{
+    //background-color: #a5d6a7;
+    height: 100%;
+}
+#header{
+    height: 50px;//border-bottom: 1px solid #004b3f;
+}
+#header #h_left{
+    height: inherit;width: 70px;
+    float: left;
+}
+a{
+    text-decoration: none;
+}
+#header #h_left a{
+    //background-color: #463f46;display: block;
+    color: #01abae;font-size:28px;font-weight:600 ;
+    line-height: 50px;padding-left: 5px;letter-spacing: 2px;
+}
+#header #h_right{
+    float: right;
+}
+#header #h_right a{
+    display: block;line-height: 50px;font-size: 14px;
+    float: left;color: #004b3f;padding: 0 12px;
+}
+#header #h_right a:hover{
+    background-color: #006e61;color: #fbffff;
+    transition: all .3s ease-out;
+}
+#center{
+    height:calc(100% - 50px);
+    width: 100%;
+    margin-bottom: -100px;
+    position: relative;overflow: hidden;
+    //min-height: 600px;
+}
+#center:after{
+    content: ' ';
+    display: none;
+    clear: both;
+}
+#picture{
+    height: 100%;width: 100%;overflow: hidden;
+}
+#picture .blur{
+    background: url('../pic/lake.jpg') center/cover;
+    transform: scale(1.02);
+    filter:blur(5px);
+    width: 100%;//height:calc(100% - 100px);height: 100%;margin-bottom: -100px;
+}
+#log{
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 400px;
+    width:350px;padding-top:10px;
+    border-radius: 10px;position: absolute;top: calc(50% - 200px);
+    left:calc(50% - 175px);
+}
+#log h1{
+    color: #0984e3;text-align: center;cursor: auto;
+    margin-bottom: 30px;padding-top: 10px;
+}
+.log-form {
+    width: 300px;height: 10%;outline: none;display: block;
+    font-size: 18px;
+    border:none; border-bottom: 2px solid rgba(129, 156, 174, 0.49);margin: 0 auto;
+    background-color: rgba(223, 229, 234, 0.2);color: rgba(61, 61, 61, 0.92);
+    padding-left: 5px;
+}
+.log-form :-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    border-bottom: 2px solid rgba(129, 156, 174, 0.49); !important
+}
+.line{
+    height: 25px;//border: 1px solid orange;width: 80%;margin-left: 10%;margin-top: 20px;
+    font-size: 14px;color: #ff3738;text-align: center;line-height: 25px;border-radius: 12px;
+    display: none;
+}
+.log-form:focus {
+    border-bottom: 2px solid #097cd8;
+    transition: all .5s ease-out;
+}
+.login{
+    height: 40px;width: 280px;margin: 30px auto 0;display: block;
+    background-color: #097bd7;border: none;cursor: pointer;outline: none;
+    font-weight: 600;font-size: 18px;color: white;border-radius:5px;
+}
+.login:hover{
+    background-color: #0973cc;
+}
+#log a{
+    display: block;
+    margin: 0 auto;text-align: center;
+    height: 40px;width: 250px;background-color: rgba(255, 55, 56, 0.74);line-height: 40px;
+    font-weight: 600;font-size: 18px;color: white;border-radius:5px;
+}
+#log a:hover{
+    background-color: rgba(255, 55, 56, 0.83);
+}
+#footer{
+    width: 100%;
+    height: 100px;background: rgba(0, 0, 0, 0.2);
+}
+

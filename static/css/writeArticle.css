@@ -1,0 +1,105 @@
+html,body{
+    height: 100%;
+}
+body{
+    padding: 0;
+    margin: 0;background: url("../pic/424827.jpg") center/cover;
+}
+#home{
+    height: 90%;width: 80%;min-width: 1100px;margin: 0 auto;
+    position: relative;display: none;padding:2%;
+}
+/*......................短短的分割线....右边部分.........................................................*/
+.toolbar {
+    //border: 1px solid #ccc;width: 64%;min-width: 892px;
+    position: fixed;
+    z-index: 2;
+    //background-color: rgba(143, 152, 137, 0.1);
+}
+#con_sup{
+    width: 100%;height: calc(100% - 90px);padding: 31px 0 0 0;   /* 31（自己的paddding）+55+2(.my-title 的高)*/
+}
+.text {
+    border: 1px solid #ccc;
+    height: 100% ;
+    width:100%;font-family: Arial;color: #3d3d3d;
+}
+#content{
+    width:80%;height: 100%;
+    float: left;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+#title{
+    border: 1px solid #ccc ;box-sizing: border-box;
+}
+#title label{
+    width:100%
+}
+.my-title{
+    border: 0;outline: none;height: 55px;width: 100%;text-align: center;
+    font-size: 25px;line-height: 55px;color: #454545;
+}
+/*......................短短的分割线....左边部分了.........................................................*/
+#navigator{
+    width: 20%;float: left;height: 100%;
+    background-color: rgb(144, 166, 179);
+}
+a{
+    text-decoration: none;
+}
+#btn{
+    width: 80%;margin: 55px auto 10px;box-sizing: border-box;background-color: #f4a720;
+    height: 40px;border:1px solid rgba(255, 165, 0, 0.47);border-radius: 20px;
+}
+#btn a{
+    display: block;line-height: 40px;text-align: center;font-size: 1.0em;color: #eeeeee;
+    font-family: 宋体;
+}
+#btn:hover{
+    background-color: #ff9614;border: none;
+}
+#btn:hover a{
+    font-weight: 600;
+}
+.w-e-menu{
+    transition: all .5s ease-out;
+}
+.w-e-menu:hover{
+    background-color: rgba(202, 202, 202, 0.7);
+    transition: background-color .5s ease-out;
+}
+#showPic{
+    position: absolute;left:-10%;top:0;
+    width: 80px;height: 30px;background-color: #ffa500;color: white;
+    text-align: center;line-height: 30px;font-size: 14px;cursor: pointer;
+}
+#showPic:hover{
+    background-color: #ff2e34;
+}
+#mascot{
+    margin-top: 50px;
+}
+#mascot img{
+    height:150px;width:150px;background: red;border-radius: 50%;margin: 0 auto;display: block;
+}
+li{
+    list-style-type: none;color: white;font-size: 14px;padding: 10px 0;text-align: center;
+    border-bottom: 1px solid rgba(230, 230, 230, 0.44);
+}
+#my-list{
+    padding: 0;
+}
+#upload{
+    position: absolute;right: -80px;bottom: 0;
+    width: 80px;height: 40px;//background-color: #ff2e34;color: rgba(255, 255, 255, 0.73);
+    text-align: center;line-height: 40px;font-size: 16px;cursor: pointer;
+    background: linear-gradient(-135deg,transparent 10% , #ff2e34 100%);
+}
+#upload:hover{
+    background: linear-gradient(-135deg,transparent 10% ,#ff2e34 10%, #ff2e34 100%);
+
+}
+.w-e-text p img{
+    width: 350px;
+}
