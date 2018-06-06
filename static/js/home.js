@@ -1,16 +1,21 @@
 $(function () {
-    let number=0;
+    let number=0;               //第几次请求数据
     $(".more").click(()=>{
-        //number+=1;
+
         $.ajax({
             type: "post",
             url: "/moreArt",
             data:{ page:number },
             beforeSend: function () {
-
-
+                $(".stop-more").show();
+                $(".add-animate").show();
             },
             success: function (datas) {
+                if(datas.length===0){
+                    $(".add-animate").show().text('客官请回，今日打烊了...');
+
+                    return 0;
+                }
                 let node=null;
                 let animateNo=0;
                 for(let data of datas){
@@ -65,12 +70,18 @@ $(function () {
                     $("#show_art").append(node);
                 }
                 //console.log(node);
+                console.log(`第${number+1}次后台来的数据`);
                 console.log(datas);
             },
             complete: function () {
-
+                $(".stop-more").hide();
+                $(".add-animate").fadeOut();
+                number+=1;
             }
         });
+    });
+    $(".stop-more").click((e)=>{
+        e.stopPropagation();      //阻止冒泡 避免多次点击按钮
     });
 });
 

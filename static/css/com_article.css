@@ -109,9 +109,3 @@
 .art_foo_i span{
     font-size: 10px;padding-left: 5px;
 }
-/*.....................................................................................*/
-.more{
-    height: 50px;width: 50px;line-height: 50px;text-align: center;color: white;
-    background-color: #f4a720;position: fixed;bottom: 20px;right: 20px;cursor: pointer;
-}
-/*.....................................................................................*/

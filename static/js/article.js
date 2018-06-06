@@ -68,11 +68,12 @@ $(function () {
               $(".comment-up-stop").show();
           },
           success:function (data) {
-              console.log(data);
+              console.log('success'+data);
           },
           complete: function (data) {
-             // console.log(data.responseJSON.u_id);
-             if(data==="请先登录"){
+              console.log('complete');
+             //console.log(data.responseJSON.u_id);
+             if(data.responseJSON===undefined){
                   alert('滚去登录');
                   $(".comment-up-me").text('提交');
                   $(".comment-up-animate").css("transform","rotateY(0deg)").fadeOut(500);

@@ -2,7 +2,7 @@
 <header>
     <div id="all">
         <div id="left">
-            <span>然也</span>
+            <a href="/" title="回首页"><span>然也</span></a>
         </div>
         <div id="middle">
             <ul>
@@ -11,14 +11,14 @@
                 <li class="head_nav mes_nav ">消息
                     <ul class="mes">
                         <li><a href="#">评论</a></li>
-                        <li><a href="javascript:void()">星火</a></li>
-                        <li><a href="javascript:void()">喜欢和赞</a></li>
-                        <li><a href="javascript:void()">关注</a></li>
-                        <li><a href="javascript:void()">赞赏</a></li>
-                        <li><a href="javascript:void()">其他</a></li>
+                        <li><a href="javascript:">星火</a></li>
+                        <li><a href="javascript:">喜欢和赞</a></li>
+                        <li><a href="javascript:">关注</a></li>
+                        <li><a href="javascript:">赞赏</a></li>
+                        <li><a href="javascript:">其他</a></li>
                     </ul>
                 </li>
-                <li class="head_nav"><label><input type="search" placeholder="搜索" id="search" ></label></li>
+                <li class="head_nav"><label><input  placeholder="搜索" id="search" autocomplete="off"></label></li>
             </ul>
         </div>
         <div id="right">
@@ -28,11 +28,11 @@
                     <% if(user!==null) { %>
                     <div id="user_come"></div>
                     <ul class="mes">
-                        <li><a href="javascript:void()">我的主页</a></li>
-                        <li><a href="javascript:void()">收藏的文章</a></li>
-                        <li><a href="javascript:void()">喜欢的文章</a></li>
-                        <li><a href="javascript:void()">帮助与反馈</a></li>
-                        <li><a href="javascript:void()">设置</a></li>
+                        <li><a href="/user/<%=user%>" target="_blank">我的主页</a></li>
+                        <li><a href="javascript:">收藏的文章</a></li>
+                        <li><a href="javascript:">喜欢的文章</a></li>
+                        <li><a href="javascript:">帮助与反馈</a></li>
+                        <li><a href="javascript:">设置</a></li>
                         <li><a href="/getout">退出</a></li>
                     </ul>
                     <% } else { %>

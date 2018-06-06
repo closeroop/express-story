@@ -11,6 +11,7 @@
     const readarticle=require('./router/readarticle');
     const comment=require('./router/comment');
     const moreArt=require('./router/moreArt');
+    const userindex=require('./router/userindex');
     const server=express();
 
     server.use(bodyparser.urlencoded({}));
@@ -21,6 +22,13 @@
                         keys:['ok','nice','yours'],   //秘钥
                         maxAge:1000*60*60*5     //会话时间 5个小时
                         })); //会话设置
+
+   server.use((req,res,next)=>{
+       if(req.session.u_id===undefined){
+           req.session.u_id=null;
+       }
+       next();
+   });                              //防止越级访问后 造成req.session.u_id为被设置为null
 
     server.use('/',index);    //首页路由
 
@@ -52,9 +60,12 @@
 
     server.use('/getdata',readdata);  //得到展示数据demo
 
+   server.use('/user',userindex);    //个人主页
+
     server.use(express.static('./'));
     server.use(express.static('./static'));
     server.use('/art',express.static('./static'));
+    server.use('/user',express.static('./static'));
 
      server.use((req,res,next)=>{
          res.status(404).send('sorry');   //404页面  一定要写最后啊

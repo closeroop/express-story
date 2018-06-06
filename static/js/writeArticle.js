@@ -17,6 +17,10 @@ $(function () {
     $("#upload").click(function () {
         console.log(editor.txt.html());   //看看 内容  可以
         console.log($("#getTitle").val()); //看看 标题 可以
+        if(editor.txt.html()===''||$("#getTitle").val()===''){
+            alert('什么都不写？');
+            return 0;
+        }
         $.post("/upload/upArt",{content:editor.txt.html(),title:$("#getTitle").val()},function(result){
             if(result==='ok'){
                 alert("提交成功");

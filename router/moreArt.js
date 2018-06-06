@@ -26,13 +26,13 @@ function readdata(datas) {
             })
         });
     }
-};
+}
 
 router.post('/',(req,res)=>{
     let page=req.body.page;
     //console.log(page);
 
-    let sql = `SELECT * from artcle_table  ORDER BY art_id  DESC  LIMIT ${page*2+8},2`; //每次获取2条数据
+    let sql = `SELECT * from artcle_table  ORDER BY art_id  DESC  LIMIT ${page*4+8},4`; //每次获取4条数据
     db.query(sql, (err, data) => {
         if (err) {
             res.status(500).send('Bad database');
@@ -40,14 +40,14 @@ router.post('/',(req,res)=>{
         else {
             let promise1= readdata(data[0]);
             let promise2= readdata(data[1]);
-           /* let promise3= readdata(data[2]);
+            let promise3= readdata(data[2]);
             let promise4= readdata(data[3]);
-            let promise5= readdata(data[4]);
+            /*let promise5= readdata(data[4]);
             let promise6= readdata(data[5]);
             let promise7= readdata(data[6]);
             let promise8= readdata(data[7]);*/    //以后加的数据
             let promiseLine=[];
-            promiseLine.push(...[promise1,promise2]);
+            promiseLine.push(...[promise1,promise2,promise3,promise4]);
             Promise.all(promiseLine).then((result)=>{
                     data.forEach((item ,index)=>{
                         if(result[index].match(/src=".*?"/)){
@@ -55,7 +55,9 @@ router.post('/',(req,res)=>{
                         }
                         data[index].showart = result[index].replace(/<.*?>/g,'').replace(/\&nbsp;/g,'');
                     });
-                    res.send(data);
+                setTimeout(()=>{
+                        res.send(data);    //前台演示需要
+                    },2000);
                 }
             ).catch(()=>{
                 console.log(2333);
@@ -65,6 +67,15 @@ router.post('/',(req,res)=>{
     });
 });
 
-
-
 module.exports=router;
+
+/*   关于函数readdata()中
+* if(!datas){
+*            return Promise.resolve('-');     为什么要resolve('-');而前台实际不会收到 '- '呢
+*           }
+*
+*    首先  resolve('-')是为了 promise 可以--全部--顺利完成
+*    因为我是把resolve的结果作为属于给对应的 data 的，而data是数据库检索出来的，所以上一步那些多余的 '- ',没有
+*      对应的data，因此不会发给前台，前台也不必担心这个问题
+*
+* */

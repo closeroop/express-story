@@ -2,6 +2,7 @@ const express = require('express');
 const multipart=require('multiparty');
 const moment=require('moment');
 const mysql=require('mysql');
+const path=require('path');
 const fs= require('fs');
 const router = express.Router();
 let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456',
@@ -21,8 +22,10 @@ router.post('/upImg',(req,res)=>{
         }
         else{
             let inputFile=files.yourImg[0];
+            //console.log(inputFile);   //查看文件信息
+            let extname= path.extname(inputFile.originalFilename) ;
             let oldname=inputFile.path;
-            fs.rename(oldname,`./upload/upImg/`+now+`.png`,(err)=>{
+            fs.rename(oldname,`./upload/upImg/`+now+`${extname}`,(err)=>{
                 if(err){
                     res.send('err2');
                 }
@@ -30,7 +33,7 @@ router.post('/upImg',(req,res)=>{
                     res.send({
                         "errno": 0,
                         "data": [
-                            `.`+`./upload/upImg/`+now+`.png`
+                            `.`+`./upload/upImg/`+now+`${extname}`
                         ]
                     })
                 }

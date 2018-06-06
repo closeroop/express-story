@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>person</title>
+    <link rel="stylesheet" href="./css/person.css">
+    <link rel="stylesheet" href="./css/com_header.css">     <!--导航样式表-->
+</head>
+<body >
+    <div id="nav_top">
+        <%- include com_header.ejs %>   <!--头部-->
+    </div>
+     <div class="show-me">
+         <div class="show-bgd"></div>
+         <div class="show-pic"><img src="./pic/user_tou/tou-5.jpg" alt="uu"></div>
+         <div class="love-me">
+             <h2><%= user %><%= visit %></h2>
+             <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
+         </div>
+         <div class="show-word">
+             <span> 这个人很懒，什么都没有留下</span>
+             <input  class="replace-word" disabled>
+         </div>
+     </div>
+     <div class="show-art">
+         <div class="art-me">
+                <div class="art-me-nav">
+                    <a href="javascript:">文章 <span class="underline"></span></a>
+                    <a href="javascript:">动态 <span  class="underline"></span></a>
+                    <a href="javascript:">热门 <span  class="underline"></span></a>
+                </div>
+                <div class="art-me-list">
+                    <% for(let i in artData){ %>
+                    <div class="my-art">
+                        <div class="art-intro">
+                            <h3><a href="/art/<%= artData[i].art_id %>"><%= artData[i].art_head %></a></h3>
+                            <% if(artData[i].pic){ %>
+                            <a href="<%=artData[i].art_id %>" class="art-pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank">
+                                </a>
+                            <% } %>
+                            <p>
+                                <%=artData[i].showart.slice(0,80)%>.......
+                            </p>
+                        </div>
+                        <div class="art-comment">
+                            </a><span>2018-5-12 10:20:05</span><a href="">评论</a>
+                        </div>
+                    </div>
+                    <% }%>
+                </div>
+
+         </div>
+         <div class="art-me-like">
+
+         </div>
+     </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/person.js"></script>
+</html>

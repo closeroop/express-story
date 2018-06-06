@@ -6,7 +6,7 @@ const router = express.Router();
 let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456', database:'hobtu'});
 router.get('/',(req,res)=>{
     //console.log(req.session.u_id);
-    if(req.session.u_id===undefined){   //第一次的时候  req.session.u_id 是 undefined 呀！
+    if(req.session.u_id===undefined){   //第一次的时候  req.session.u_id 是 undefined 呀！这里其实可以省略了
         req.session.u_id=null;
     }
     let user_come=req.session.u_id;

@@ -1,6 +1,9 @@
 *{
     margin: 0;padding: 0;
 }
+a{
+    text-decoration: none;
+}
 header{
     height:50px;
     box-shadow: 0 1px 1px 1px rgba(128, 128, 128, 0.29);
@@ -44,6 +47,9 @@ li{
 .head_nav:last-child{
     background-color:transparent ;
 }
+#search{
+    color: #51564c;font-family: 微软雅黑;
+}
 #search:focus{
     width: 228px;
     transition:all .5s;
@@ -60,13 +66,13 @@ li{
      position: relative;padding: 0 18px 0 10px;
  }
 .mes_nav:hover .mes{
-     height: 300px;
-    transition: all .8s ;box-shadow:0 0 3px 2px rgba(212, 202, 212, 0.53);
+    height: 300px;
+    transition: all .8s ;box-shadow:0 0 3px 2px rgba(207, 207, 207, 0.38);
 }
 .mes{
      left: 0;height: 0;overflow: hidden;
      position: absolute;//display: none;transition: all .8s ;
-     width: 130px;background-color: rgba(255, 255, 255, 0.95);
+     width: 130px;background-color: rgba(255, 255, 255, 1);
  }
 .mes li{
     padding: 0 10px;

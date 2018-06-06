@@ -1,0 +1,137 @@
+*{
+    padding: 0;margin: 0;
+}
+body{
+    overflow-x: hidden;height: 100%;background: url("../pic/1133523.jpg") center/cover fixed ;
+}
+#nav_top{
+    height: 50px;
+    position: fixed;width: 100%;
+    top:0;z-index: 999;
+}
+.show-me{
+    height: 250px;width: 1000px;margin:0 auto;position: relative;overflow: hidden;
+    margin-top: 70px;
+}
+.show-bgd{
+    height: 100%;width: 100%;position: absolute;
+    background: url("../pic/login-3.jpg") center/cover;filter: blur(0px);padding: 15px;margin: -15px;
+}
+.show-pic{
+    padding: 20px 0 5px 0;
+}
+.show-pic img{
+   width: 80px;filter: blur(0);border-radius: 50%;border: 10px solid rgba(255, 255, 255, 0.2);
+    margin: 0 auto;display: block;
+}
+.love-me{
+    filter: blur(0);width: 260px;margin:0 auto;
+}
+.love-me button{
+    outline: none; border: none;height: 35px;width: 120px;color: white;
+}
+.love-me h2{
+    text-align: center;color: white;text-shadow: 0 0 1px black;margin-bottom: 10px;
+}
+.kiss-me{
+    background-color: #ff720a;
+}
+.kiss-me:hover{
+    background-color: orangered;
+ }
+.talk-me{
+    background-color: #006f60;float: right;
+}
+.talk-me:hover{
+    background-color: #004b3f;float: right;
+}
+.show-word {
+    text-align: center;color: #ffffff;filter: blur(0);margin-top: 20px;font-size: 14px;
+    font-family: 微软雅黑;position: relative;text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+/*.show-word span{
+    padding: 0 10px;background-color: #00e100;
+}*/
+.replace-word{
+    background-color: rgba(0, 225, 0, 0);outline: none;//border: 1px solid rgba(217, 217, 217, 0.29);
+    border: none;
+    color: #8f9889;padding: 3px;width: 300px;position: absolute;top: 0;left:calc(50% - 150px);
+}
+.replace-word:hover{
+    box-shadow: inset 0 0 0 1px rgba(85, 85, 85, 0.52);
+}
+.show-art{
+    width: 1000px;margin:10px auto;//background-color: #8f9889;//border-top: 1px solid rgba(128, 128, 128, 0.49);
+    padding: 5px;
+}
+.show-art:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.art-me{
+    width: 65%;//background-color: #01abae;float: left;
+}
+.art-me-like{
+    width: 33%;height:400px;background-color: #ffffff;float: right;
+}
+.art-me-nav{
+    height: 40px;border-bottom: 1px solid #cccccc;background-color: white;
+    margin-bottom: 5px;padding-bottom: 2px;
+}
+a{
+    text-decoration: none;color: #232823;
+}
+.art-me-nav a{
+    color: #666e60;font-family: 微软雅黑;display: block;width: 70px;float: left;margin: 0 10px;
+    text-align: center;line-height: 40px;
+}
+.underline{
+    height: 3px;width: 100%;display: block;background-color: #ff601d;transform: rotateY(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+/*.art-me-nav a:hover .underline{
+    transition: transform 0.5s ease-in-out;
+    transform: rotateY(0deg);
+}*/
+.art-me-list{
+    width: 100%;padding: 5px 0;box-sizing: border-box;
+}
+.my-art{
+    background-color: #ffffff;width: 100%;padding: 15px;box-sizing: border-box;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);margin-bottom: 5px;
+}
+.art-intro{
+    padding: 10px 0 10px 10px;position: relative;height: 100px;
+}
+.art-pic img{
+    width: 110px;
+}
+.art-intro h3 a{
+   padding: 0 10px 0 30px;font-family: 微软雅黑;color: rgb(50, 51, 52);font-size: 18px;
+}
+.art-intro h3 a:hover{
+    text-decoration: underline;
+}
+.art-pic{
+    margin-right: 0;margin-left: 10px;position: absolute;right: 0;top: 10px;width: 120px;height: 110px;
+    border-radius: 5px;
+}
+.art-intro p{
+    margin: 10px 0;color: rgba(45, 52, 54, 0.62);font-size: 14px;padding-right: 130px;
+    line-height:20px;font-family: 微软雅黑;
+}
+.art-intro p::first-letter{
+    margin-left: 32px;
+}
+.art-comment{
+    clear:both ;padding: 0 40px;background-color: rgba(238, 241, 237, 0.1);height: 25px;line-height: 25px;
+    color: rgba(143, 152, 137, 0.38);
+}
+.art-comment a{
+    color: rgba(143, 152, 137, 0.75);font-size: 12px;font-family: 微软雅黑;line-height: 25px;
+}
+.art-comment span{
+    color: rgba(143, 152, 137, 0.75);font-size: 10px;font-family: 微软雅黑;margin: 0 15px 0 0;
+    line-height: 25px;
+}

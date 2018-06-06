@@ -5,14 +5,15 @@
 }
 @keyframes background-animate {
     0% { background-position-x:10% ;background-position-y: 0}
-    30%{ background-position-x:10% ;background-position-y: -10%}
-    60%{ background-position-x:10% ;background-position-y:8%}
-    10%{ background-position-x:10% ;background-position-y: 0}
+    30%{ background-position-x:10% ;background-position-y: -20%}
+    60%{ background-position-x:10% ;background-position-y:15%}
+    100%{ background-position-x:10% ;background-position-y: 0}
 }
 body,html{
     height: 100%;
-    background: url("../pic/login-1.jpg") no-repeat,#fef9db;//min-width: 1000px;
-    animation: background-animate 5s infinite alternate;
+    background: url("../pic/login-2.jpg")  no-repeat,#fef9db;//min-width: 1000px;
+    background-size: cover;
+    animation: background-animate 5s infinite ;
 }
 #header{
     height: 50px;//border-bottom: 1px solid #004b3f;position: fixed;top: 0;width: 100%;
@@ -53,11 +54,15 @@ a{
     display: none;
     clear: both;
 }
+@keyframes shadow {
+    to {box-shadow: 0 0 0 20px rgba(253, 253, 255, 0.36); }
+}
 #user-up{
     //background-color: #f4a720;margin:0 auto;
     width:850px ;height:500px;//border: 1px solid  #c7b4cc;
     position: relative;
-    //margin-top: 100px;
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.02);
+    //animation: shadow 2s infinite alternate;
 }
 
 #user-up img{
@@ -150,7 +155,7 @@ a{
     background-color: rgba(255, 55, 56, 0.83);
 }
 #footer{
-    position: relative;
+    position: relative;width: 100%;
 }
 .welcome{
     width: 850px;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.2);
