@@ -17,16 +17,16 @@
 .article{
     width: 650px;
     //border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    box-shadow: 0 1px 1px 2px rgba(128, 128, 128, 0.4);
+    //box-shadow: 0 1px 1px 2px rgba(128, 128, 128, 0.4);
     margin-top: 10px;
     background-color: white;
     padding: 10px;
-    border-radius: 5px;
+    //border-radius: 5px;
     position: relative;
 }
 .art_header{
     height: 40px;
-    background-color: rgb(162, 155, 254);
+    //background-color: rgb(162, 155, 254);
     border-radius: 5px;overflow: hidden;
 }
 .art_header:after{
@@ -62,8 +62,9 @@
     float: left;
 }
 .author a{
-    font-size: 12px;margin: 0 0 0 2px;font-family: Lucida ;color: #2d3436;
-    line-height: 40px;text-decoration:none;
+    font-size: 12px;margin: 0 0 0 2px;font-family: Lucida ;color: #515357;
+    line-height: 40px;text-decoration:none;border-left: 1px solid rgba(81, 83, 87, 0.2);
+    padding-left: 5px;
 }
 .art_header h3{
     float:right;text-align: center;
@@ -75,17 +76,24 @@
 
 }
 .art_header h3 a{
-    max-width:450px;min-width:200px;display: block;color: rgba(255, 255, 255, 0.87);
-    background: linear-gradient(45deg, rgb(108, 92, 231) 20%, rgb(10, 189, 227));
-    position: relative;padding: 0 10px;
+    //max-width:450px;//min-width:200px;//display: block;color: rgb(89, 89, 89);
+    //background: linear-gradient(45deg, rgb(108, 92, 231) 20%, rgb(10, 189, 227));
+    position: relative;padding: 0 5px;
 
+}
+.art_header h3 a:hover{
+    border-bottom: 1px solid rgb(100, 100, 100);
+}
+.art_header h3 a:visited{
+    color: rgb(142, 142, 142);
+    border-bottom: 1px solid rgb(142, 142, 142);
 }
 .art_header h3 a:after{
     content: '';
     display: block;
     border: 14px solid transparent;
-    border-left-color: rgb(108, 92, 231);
-    border-bottom-color: rgb(108, 92, 231);
+    //border-left-color: rgb(108, 92, 231);
+   // border-bottom-color: rgb(108, 92, 231);
     position: absolute;top:6px;left:-14px;
     transform: rotate(45deg);
 }
@@ -104,8 +112,11 @@
 }
 .art_foo_i{
     height: 100%;width: 15%;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
-    font-size: 14px;
+    font-size: 14px;color: #707070;
 }
 .art_foo_i span{
     font-size: 10px;padding-left: 5px;
+}
+.art_footer{
+    background-color: rgba(171, 180, 164, 0.07);
 }

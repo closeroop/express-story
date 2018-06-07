@@ -5,18 +5,17 @@
 }
 @keyframes background-animate {
     0% { background-position-x:10% ;background-position-y: 0}
-    30%{ background-position-x:10% ;background-position-y: -20%}
-    60%{ background-position-x:10% ;background-position-y:15%}
-    100%{ background-position-x:10% ;background-position-y: 0}
+    30%{ background-position-x:0;background-position-y: 10%}
+    100%{ }
 }
 body,html{
     height: 100%;
-    background: url("../pic/login-2.jpg")  no-repeat,#fef9db;//min-width: 1000px;
+    background: url("../pic/login-3.jpg")  no-repeat,#fef9db;//min-width: 1000px;
     background-size: cover;
-    animation: background-animate 5s infinite ;
+    //animation: background-animate 5s infinite  alternate;
 }
 #header{
-    height: 50px;//border-bottom: 1px solid #004b3f;position: fixed;top: 0;width: 100%;
+    height: 50px;//border-bottom: 1px solid #004b3f;
     transition: all 2s ease-out;
 }
 
@@ -45,9 +44,9 @@ a{
 }
 #center{
      width: 100%;
-    //position: relative;
+    position: relative;
     //min-height: 600px; //background-color: rgb(194, 225, 254);
-    padding-top: 100px;
+    top: calc(50% - 350px);overflow: hidden;
 }
 #center:after,#user-up:after{
     content: '';
@@ -61,20 +60,31 @@ a{
     //background-color: #f4a720;margin:0 auto;
     width:850px ;height:500px;//border: 1px solid  #c7b4cc;
     position: relative;
-    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.02);
+    //box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.02);
     //animation: shadow 2s infinite alternate;
 }
 
 #user-up img{
     float: left;display: block;height: 500px;//filter: blur(2px);
-    opacity:0.96;
+    //opacity:0.96;
 }
 #log{
-    background-color: rgba(251, 252, 252, 0.96);
+    background-color: rgb(255, 255, 255);
     height: 500px;
     width:350px;padding-top:80px;
-    float: left;box-sizing: border-box;//border: 1px solid  #c7b4cc;
-    position: relative;
+    float: right;box-sizing: border-box;//border: 1px solid  #c7b4cc;
+    position: relative;//display: none;
+}
+#register{
+    background-color: rgb(255, 255, 255);
+    height: 500px;
+    width:350px;padding-top:60px;
+    float: right;box-sizing: border-box;
+   //position: relative;
+    position: absolute;right: -2px;top:0;
+    transform: rotateY(270deg);
+    transform-origin: 100% 50%;
+    transition:all .8s ease-out;
 }
 @keyframes xianY {
     to {  height: 100%; }
@@ -114,36 +124,59 @@ a{
     bottom: -2px;right: -3px;
     transform-origin: 100% 0;animation: xianX 3s linear infinite alternate;
 }
-#log h1{
+#log h1,#register h1{
     color: #c7b4cc;text-align: center;
     margin-bottom: 30px;padding-top: 10px;
 }
+#register h1{
+    color: #df9d2d;//color: rgba(255, 7, 9, 0.46);
+}
 .log-form {
     width: 300px;height: 40px;outline: none;display: block;
-    font-size: 18px;
+    font-size: 18px;font-family: 微软雅黑;
     border:none; border-bottom: 2px solid rgba(135, 158, 174, 0.77);margin: 15px auto;
+    background-color: rgba(0, 0, 0, 0);color: rgb(70, 70, 71);
+    padding-left: 10px;
+}
+.reg-form{
+    width: 300px;height: 40px;outline: none;display: block;
+    font-size: 14px;
+    border:none; border-bottom: 1px solid rgba(59, 100, 61, 0.42);margin: 15px auto;
     background-color: rgba(0, 0, 0, 0);color: rgb(63, 105, 46);
     padding-left: 10px;
 }
-.log-form :-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    border-bottom: 2px solid rgba(129, 156, 174, 0.49); !important
-}
-.line{
+.line,.register-line{
     height: 25px;//border: 1px solid orange;width: 80%;margin-left: 10%;margin-top: 20px;
-    font-size: 14px;color: #f0f1ef;text-align: center;line-height: 25px;border-radius: 12px;
+    font-size: 14px;color: #fefffd;text-align: center;line-height: 25px;border-radius: 12px;
     display: none;background-color: #f4a720;
+}
+.register-line{
+    font-size: 12px;;background-color: #11b615;
 }
 .log-form:focus {
     border-bottom: 2px solid #f0932b;
     transition: all .5s ease-out;
 }
-.login{
+.login,.register{
     height: 40px;width: 280px;margin: 30px auto 0;display: block;
-    background-color: #097bd7;border: none;cursor: pointer;outline: none;
+    background-color: #0983de;border: none;cursor: pointer;outline: none;
     font-weight: 600;font-size: 18px;color: white;border-radius:5px;
+}
+.register{
+    background-color: #e60706;
+}
+.register:hover{
+    background-color: #c70706;
 }
 .login:hover{
     background-color: #0973cc;
+}
+#register a{
+    font-size: 14px;font-family: 微软雅黑;color: #004b3f;margin-right: 35px;
+    float: right;
+}
+#register a:hover{
+    text-decoration: underline;
 }
 #log a{
     display: block;
@@ -154,15 +187,24 @@ a{
 #log a:hover{
     background-color: rgba(255, 55, 56, 0.83);
 }
+.reg_account{
+
+}
+.check-account{
+    width: 35px; position: absolute;right: 25px;top: 150px;color: #333435;
+   outline: none;
+}
+
+
 #footer{
     position: relative;width: 100%;
 }
 .welcome{
-    width: 850px;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.2);
+    width: 100%;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.2);
     text-align: center;//background-color: #f4a720;font-family: "Agency FB";
 }
 .welcome span{
-    width: 850px;display: block;
+    //width: 850px;display: block;
 }
 .welcome span:last-child{
     font-size: 16px;color: rgba(244, 167, 32, 0.4);

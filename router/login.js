@@ -5,7 +5,6 @@ let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456',
     database:'hobtu'});
 
 router.get('/',(req,res)=>{
-    //console.log('login');
     res.render('login2');
 });
 router.post('/',(req,res)=>{

@@ -11,7 +11,7 @@
 <body>
     <div id="header">
          <div id="h_left">
-              <a href="javascript:">然也</a>
+              <a href="/">然也</a>
          </div>
         <div id="h_right">
             <a href="javascript:">关于我们</a><a href="javascript:;">加入我们</a>
@@ -28,14 +28,24 @@
                        <input class="log-form u_password" type="password" placeholder="请输入密码:">
                        <div class="line">密码错误</div>
                        <input type="submit" value="登录" class="login"><br>
-                       <a href="">注册</a>
+                       <a href="#" class="to-register">注册</a>
+               </div>
+               <div id="register">
+                   <h1>注册</h1>
+                   <input class="reg-form reg_account"  placeholder="你的账户名:  (长度不超过16位)"  maxlength="16">
+                   <button class="check-account">检测</button>
+                   <input class="reg-form reg_password" type="password" placeholder="请输入密码:  (密码不超过16位)" maxlength="16">
+                   <input class="reg-form reg_password_config" type="password" placeholder="请确认密码:" maxlength="16">
+                   <div class="register-line">密码错误</div>
+                   <input type="submit" value="注册" class="register"><br>
+                   <a href="" class="to-login"><--已有账号，立即登录</a>
                </div>
            </div>
-    </div>
-    <div id="footer">
-        <div class="welcome">
-            <span>1000个故事在这里诞生</span>
-            <span>插画作者   ---巴颜格日顺</span>
+        <div id="footer">
+            <div class="welcome">
+                <span>1000个故事在这里诞生</span>
+                <span>插画作者   ---巴颜格日顺</span>
+            </div>
         </div>
     </div>
     <script src="./js/jquery.min.js"></script>
