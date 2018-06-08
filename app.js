@@ -34,7 +34,7 @@
 
     server.use('/moreArt',moreArt);  //首页下拉获取更多的推送
 
-    server.use('/login',login);  //登录路由
+    server.use('/login',login);  //  登录/注册 路由
 
     server.get('/getout',(req,res)=>{
          req.session.u_id=null;

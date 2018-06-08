@@ -10,7 +10,7 @@ router.get('/:u_id',(req,res,next)=>{
     let u_id=req.params.u_id ;
     let user=req.session.u_id;
     let visit='';
-    let sql=`SELECT u_id FROM user_bass WHERE u_id='${u_id}'`;
+    let sql=`SELECT u_id FROM user_table WHERE u_id='${u_id}'`;
     let finduser=new Promise((resolve, reject) => {
         db.query(sql,(err,data)=>{
                 if(err){

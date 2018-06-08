@@ -37,6 +37,36 @@ router.post('/',(req,res)=>{
                }
     });
     //db.end();
-
+});
+router.post('/register',(req,res)=>{
+    let newAccount=req.body.account;
+    let password=req.body.password;
+    let name=req.body.name;
+    let sql=`INSERT INTO user_table VALUES ('${newAccount}','${password}','${name}')`;
+    db.query(sql,(err,data)=>{
+        if(err){
+            res.send('database err');
+            return 0;
+        }
+        res.send('insert success');
+    });
+});
+router.post('/check',(req,res)=>{
+    let account=req.body.account;
+    //console.log(account);
+    let sql=`SELECT u_id FROM user_table WHERE u_id='${account}'`;
+    db.query(sql,(err,data)=>{
+        if(err){
+            res.send('database err');
+            return 0;
+        }
+        //console.log(data);
+        if(data.length===0){
+            res.send('no exist')
+        }
+        else {
+            res.send('exist');
+        }
+    });
 });
 module.exports = router;

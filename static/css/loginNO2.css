@@ -78,7 +78,7 @@ a{
 #register{
     background-color: rgb(255, 255, 255);
     height: 500px;
-    width:350px;padding-top:60px;
+    width:350px;padding-top:30px;
     float: right;box-sizing: border-box;
    //position: relative;
     position: absolute;right: -2px;top:0;
@@ -133,7 +133,7 @@ a{
 }
 .log-form {
     width: 300px;height: 40px;outline: none;display: block;
-    font-size: 18px;font-family: 微软雅黑;
+    font-size: 16px;font-family: 微软雅黑;
     border:none; border-bottom: 2px solid rgba(135, 158, 174, 0.77);margin: 15px auto;
     background-color: rgba(0, 0, 0, 0);color: rgb(70, 70, 71);
     padding-left: 10px;
@@ -142,7 +142,7 @@ a{
     width: 300px;height: 40px;outline: none;display: block;
     font-size: 14px;
     border:none; border-bottom: 1px solid rgba(59, 100, 61, 0.42);margin: 15px auto;
-    background-color: rgba(0, 0, 0, 0);color: rgb(63, 105, 46);
+    background-color: rgba(0, 0, 0, 0);color: rgb(70, 70, 71);
     padding-left: 10px;
 }
 .line,.register-line{
@@ -191,8 +191,8 @@ a{
 
 }
 .check-account{
-    width: 35px; position: absolute;right: 25px;top: 150px;color: #333435;
-   outline: none;
+    width: 35px; position: absolute;right: 25px;top: 120px;color: #333435;
+    outline: none;
 }
 
 
