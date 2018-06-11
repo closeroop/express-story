@@ -2,7 +2,7 @@
     padding: 0;margin: 0;
 }
 body{
-    overflow-x: hidden;height: 100%;background: url("../pic/1133523.jpg") center/cover fixed ;
+    overflow-x: hidden;height: 100%;background: url("../pic/7775.jpg") center/cover fixed ;
 }
 #nav_top{
     height: 50px;
@@ -15,10 +15,10 @@ body{
 }
 .show-bgd{
     height: 100%;width: 100%;position: absolute;
-    background: url("../pic/login-3.jpg") center/cover;filter: blur(0px);padding: 15px;margin: -15px;
+    background: url("../pic/IMG_20170823_211917.JPG") center/cover;filter: blur(0px);padding: 15px;margin: -15px;
 }
 .show-pic{
-    padding: 20px 0 5px 0;
+    padding: 20px 0 20px 0;
 }
 .show-pic img{
    width: 80px;filter: blur(0);border-radius: 50%;border: 10px solid rgba(255, 255, 255, 0.2);
@@ -28,7 +28,7 @@ body{
     filter: blur(0);width: 260px;margin:0 auto;
 }
 .love-me button{
-    outline: none; border: none;height: 35px;width: 120px;color: white;
+    outline: none; border: none;height: 35px;width: 120px;color: white;cursor: pointer;
 }
 .love-me h2{
     text-align: center;color: white;text-shadow: 0 0 1px black;margin-bottom: 10px;
@@ -48,6 +48,7 @@ body{
 .show-word {
     text-align: center;color: #ffffff;filter: blur(0);margin-top: 20px;font-size: 14px;
     font-family: 微软雅黑;position: relative;text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+    display: none;
 }
 /*.show-word span{
     padding: 0 10px;background-color: #00e100;
@@ -104,9 +105,6 @@ a{
 .art-intro{
     padding: 10px 0 10px 10px;position: relative;height: 100px;
 }
-.art-pic img{
-    width: 110px;
-}
 .art-intro h3 a{
    padding: 0 10px 0 30px;font-family: 微软雅黑;color: rgb(50, 51, 52);font-size: 18px;
 }
@@ -118,7 +116,7 @@ a{
     border-radius: 5px;
 }
 .art-intro p{
-    margin: 10px 0;color: rgba(45, 52, 54, 0.62);font-size: 14px;padding-right: 130px;
+    margin: 10px 0;color: rgba(45, 52, 54, 0.8);font-size: 14px;padding-right: 130px;
     line-height:20px;font-family: 微软雅黑;
 }
 .art-intro p::first-letter{
@@ -134,4 +132,7 @@ a{
 .art-comment span{
     color: rgba(143, 152, 137, 0.75);font-size: 10px;font-family: 微软雅黑;margin: 0 15px 0 0;
     line-height: 25px;
+}
+.no-art{
+    background-color: white;text-align: center;height: 80px;line-height:80px ;color: #6e6f6d;
 }

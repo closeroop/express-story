@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>me</title>
+    <link rel="stylesheet" href="./css/infoSet.css">
+    <link rel="stylesheet" href="./css/com_header.css">     <!--导航样式表-->
+    <link rel="stylesheet" href="./css/flatpickr.min.css">
+</head>
+<body>
+<div id="home_top">
+    <%- include com_header.ejs %>
+</div>
+<div class="info-set">
+    <div class="info-vav">
+        <a href="">个人资料</a>
+        <a href="">账号管理</a>
+    </div>
+    <div class="info-part-one">
+        <table class="info-form" >
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td >
+                    <% if(basicdata.head===null){ %>
+                    <a ><img class="info-part-one-pic" src="./pic/user_tou/tou-3.jpg" alt="y"></a>
+                    <% } else {%>
+                    <a ><img class="info-part-one-pic" src="<%=basicdata.head%>" alt="y"></a>
+                    <% } %>
+                </td>
+                <td>
+                    <div id="info-pic-up"><input type="file" id="picUp" name="uppic"><span>点击修改</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td >昵称</td>
+                <td><input  class="info-input" placeholder="输入昵称" name="minName" autocomplete="off" value='<%=basicdata.minname%>'></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <label ><input type="radio" value="男" name="sex" <%= basicdata.sex==='男'?'checked':''%>>男 </label>&nbsp;
+                    <label ><input type="radio" value="女" name="sex" <%= basicdata.sex==='女'?'checked':''%>>女 </label>&nbsp;
+                    <label ><input type="radio" value="none" name="sex" <%= basicdata.sex==='none'?'checked':''%>> 保密</label>
+                </td>
+            </tr>
+            <tr>
+                <td >个人简介</td>
+                <td><textarea placeholder="什么都没写" name="personInfo" class="info-textarea"><%=basicdata.intro%></textarea></td>
+            </tr>
+            <tr>
+                <td >手机</td>
+                <td><input type="text" class="info-input" placeholder="输入手机号" name="phone" autocomplete="off" value="<%=basicdata.phone%>"></td>
+            </tr>
+            <tr>
+                <td >生日</td>
+                <td><input  class="info-input birth-data" name="birth" data-date-format="Y-m-d" placeholder="点击输入日期" value="<%=basicdata.birth%>"></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><div class="save-up">保存</div></td>
+                <td><div class="up-info"></div></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/flatpickr.js"></script>
+<script src="./js/ajaxfileupload.js"></script>
+<script src="./js/infoSet.js"></script>
+</html>

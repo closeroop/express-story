@@ -41,14 +41,21 @@ router.post('/',(req,res)=>{
 router.post('/register',(req,res)=>{
     let newAccount=req.body.account;
     let password=req.body.password;
-    let name=req.body.name;
-    let sql=`INSERT INTO user_table VALUES ('${newAccount}','${password}','${name}')`;
-    db.query(sql,(err,data)=>{
+    let minname=req.body.name;
+    let sql=`INSERT INTO user_table VALUES ('${newAccount}','${password}','${minname}')`;
+    let sql2=`INSERT INTO user_bass VALUES ('${newAccount}',null,null,null,null,null,null,'${minname}')`;
+    db.query(sql,(err,data)=>{    //先注册登录表
         if(err){
-            res.send('database err');
+            res.send('database err1');
             return 0;
         }
-        res.send('insert success');
+        db.query(sql2,(err,data)=>{         //之后再注册基本信息表
+            if(err){
+                res.send('database err2');
+                return 0;
+            }
+            res.send('insert success');
+        });
     });
 });
 router.post('/check',(req,res)=>{

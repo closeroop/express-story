@@ -12,13 +12,20 @@
     </div>
      <div class="show-me">
          <div class="show-bgd"></div>
-         <div class="show-pic"><img src="./pic/user_tou/tou-5.jpg" alt="uu"></div>
+         <div class="show-pic">
+             <% if( masterhead !== null ) {%>
+             <img src="../<%=masterhead%>" alt="uu">
+             <% }else{%>
+             <img src="./pic//user_tou/tou-3.jpg" alt="uu">
+             <%}%>
+         </div>
          <div class="love-me">
-             <h2><%= user %><%= visit %></h2>
-             <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
+             <h2><%= master %></h2>
+             <% if( user !== master ) {%>
+               <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
+             <% }%>
          </div>
          <div class="show-word">
-             <span> 这个人很懒，什么都没有留下</span>
              <input  class="replace-word" disabled>
          </div>
      </div>
@@ -35,18 +42,27 @@
                         <div class="art-intro">
                             <h3><a href="/art/<%= artData[i].art_id %>"><%= artData[i].art_head %></a></h3>
                             <% if(artData[i].pic){ %>
-                            <a href="<%=artData[i].art_id %>" class="art-pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank">
+                            <a href="/art/<%=artData[i].art_id %>" class="art-pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank">
                                 </a>
                             <% } %>
-                            <p>
+                            <% if(artData[i].pic){ %>
+                            <p >
                                 <%=artData[i].showart.slice(0,80)%>.......
                             </p>
+                            <% }else {%>
+                            <p style="padding-right: 0">
+                                <%=artData[i].showart.slice(0,80)%>.......
+                            </p>
+                            <% } %>
                         </div>
                         <div class="art-comment">
-                            </a><span>2018-5-12 10:20:05</span><a href="">评论</a>
+                            <span class="write-time"><%= artData[i].art_id %></span><a href="">评论</a>
                         </div>
                     </div>
                     <% }%>
+                    <div class="no-art">
+                        我在憋大招呢 (╯°Д°)╯︵┻━┻
+                    </div>
                 </div>
 
          </div>

@@ -12,8 +12,9 @@
     const comment=require('./router/comment');
     const moreArt=require('./router/moreArt');
     const userindex=require('./router/userindex');
+    const infoset=require('./router/infoset');
+    const  gethead=require('./router/gethead');
     const server=express();
-
     server.use(bodyparser.urlencoded({}));
     server.set('view engine','ejs') ; //输出什么东西
     server.set('views',path.join(__dirname, "views"));   //模板文件位置
@@ -27,6 +28,8 @@
        if(req.session.u_id===undefined){
            req.session.u_id=null;
        }
+       server.locals.bb='Yx';
+       //console.log(server.locals.bb);
        next();
    });                              //防止越级访问后 造成req.session.u_id为被设置为null
 
@@ -61,6 +64,10 @@
     server.use('/getdata',readdata);  //得到展示数据demo
 
    server.use('/user',userindex);    //个人主页
+
+   server.use('/infoset',infoset);   //个人信息设置
+
+    server.use('/getface',gethead); //获取头像
 
     server.use(express.static('./'));
     server.use(express.static('./static'));

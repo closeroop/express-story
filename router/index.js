@@ -6,6 +6,7 @@ const router = express.Router();
 let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456', database:'hobtu'});
 router.get('/',(req,res)=>{
     //console.log(req.session.u_id);
+
     if(req.session.u_id===undefined){   //第一次的时候  req.session.u_id 是 undefined 呀！这里其实可以省略了
         req.session.u_id=null;
     }
@@ -26,31 +27,7 @@ router.get('/',(req,res)=>{
         }
     });*/
     /*................................................................................*/
-
-    function readdata(datas) {
-        if(!datas){
-            return Promise.resolve('-');
-        }
-        else{
-            return new Promise((reslove,reject)=>{
-                let  buf = Buffer.from('');
-                let length=0;
-                let f=fs.createReadStream(path.join(__dirname,datas.art_address)/*,{ start: 0, end: 319 }*/);
-                f.on('data',(chunk)=>{
-                    buf+= Buffer.from(chunk);
-                    length+=chunk.length;
-                });
-                f.on('end',()=>{
-                    reslove(buf);
-                });
-                f.on('err',(err)=>{
-                    reject(err);
-                })
-            });
-        }
-    }         //获取几个文件的前几句话
-    let sql = `SELECT * from artcle_table  ORDER BY art_id  DESC  LIMIT 0,8`; //每次获取8条数据
-
+    let sql = `SELECT artcle_table.*,user_bass.* from artcle_table,user_bass  WHERE artcle_table.u_id=user_bass.u_id ORDER BY art_id DESC  LIMIT 0,8`; //每次获取8条数据
     db.query(sql, (err, data) => {
         if (err) {
             res.status(500).send('Bad database');
@@ -74,7 +51,7 @@ router.get('/',(req,res)=>{
                         data[index].showart = result[index].replace(/<.*?>/g,'').replace(/\&nbsp;/g,'');
                     });
                     res.render('home',{user:user_come,artData:data});
-                    //console.log(data);
+                    //console.log(data[0]);
                 }
             ).catch(()=>{
                 res.send('err')
@@ -82,4 +59,26 @@ router.get('/',(req,res)=>{
         }
     });
 });
+function readdata(datas) {
+    if(!datas){
+        return Promise.resolve('-');
+    }
+    else{
+        return new Promise((reslove,reject)=>{
+            let  buf = Buffer.from('');
+            let length=0;
+            let f=fs.createReadStream(path.join(__dirname,datas.art_address)/*,{ start: 0, end: 319 }*/);
+            f.on('data',(chunk)=>{
+                buf+= Buffer.from(chunk);
+                length+=chunk.length;
+            });
+            f.on('end',()=>{
+                reslove(buf);
+            });
+            f.on('err',(err)=>{
+                reject(err);
+            })
+        });
+    }
+}         //获取几个文件的前几句话
 module.exports=router;

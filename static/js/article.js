@@ -189,6 +189,31 @@ $(function () {
       pageRquest(upPageInfo);                  //>>------------------------------看pageRequest函数
       window.scroll(0,$(".comment-list-head")[0].offsetTop-300);
   });                                       //下一页按钮-----------------------
+
+    /*......................................登录用户头像.............................*/
+    let face=$('.user-face').text();
+    if(face===''){    //如果没有登录就不请求
+        //什么都不做
+    }
+    else {
+        $.post('/getface',{userhead:face},function (result) {  //获取头像
+            if(result==='bad data'||result[0].head===null){
+                return 0;
+            }
+            //console.log(result);
+            $('#user_come').css("background-image",`url(../${result[0].head})`);
+            $('.my-head').attr('src',`../${result[0].head}`);
+        });
+    }
+    /*........................................文章作者头像..........................*/
+    let master=$(".atr-master").text();
+    $.post('/getface',{userhead:master},function (result) {  //获取头像
+        if(result==='bad data'||result[0].head===null){
+            return 0;
+        }
+        //console.log(result);
+        $('.user-img').attr('src',`../${result[0].head}`);
+    });
 });
 
  /*---------------------------------------------几个全局方法------------------------------------*/

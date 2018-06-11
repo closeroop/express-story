@@ -1,4 +1,5 @@
 $(function () {
+    console.log(1);
     let number=0;               //第几次请求数据
     $(".more").click(()=>{
 
@@ -79,9 +80,24 @@ $(function () {
                 number+=1;
             }
         });
-    });
+    }); //更多数据
     $(".stop-more").click((e)=>{
         e.stopPropagation();      //阻止冒泡 避免多次点击按钮
+    });
+
+
+
+    /*...................................主动请求登陆者的头像................................................*/
+    let face=$('.user-face').text();
+    if(face===''){
+       return 0;
+    }
+    $.post('/getface',{userhead:face},function (result) {  //获取头像
+        if(result==='bad data'||result[0].head===null){
+            return 0;
+        }
+        //console.log(result);
+        $('#user_come').css("background-image",`url(${result[0].head})`)
     });
 });
 

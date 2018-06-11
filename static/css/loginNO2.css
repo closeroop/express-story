@@ -200,7 +200,7 @@ a{
     position: relative;width: 100%;
 }
 .welcome{
-    width: 100%;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.2);
+    width: 100%;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.4);
     text-align: center;//background-color: #f4a720;font-family: "Agency FB";
 }
 .welcome span{

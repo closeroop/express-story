@@ -38,6 +38,7 @@ router.post('/download',(req,res)=>{
                 res.status(501).send('拉取评论异常');
                 return 0;
             }
+            console.log("评论数：");
             console.log(commentNum[0].num);
             /*if(commentNum[0].num<=8){
                 res.json(data);   //如果数据小于八条就不分页了  -----还是算了吧

@@ -3,10 +3,17 @@
     <% for(let i in artData){ %>
     <div class="article">      <!--文章-->
         <div class="art_header">   <!--第一部分  -->
-            <div class="user_tou">
+            <% if(artData[i].head==null){ %>
+                <div class="user_tou" >
+                    <!--头像-->
+                    <a href="/user/<%=artData[i].u_id%>"></a>
+                </div>
+            <% } else {%>
+                <div class="user_tou" style="background-image: url(<%-artData[i].head%>)">
                 <!--头像-->
                 <a href="/user/<%=artData[i].u_id%>"></a>
-            </div>
+                </div>
+            <% } %>
             <span class="author"><a href="/user/<%=artData[i].u_id%>" target="_blank"><%=artData[i].u_id%></a></span>
             <h3><a href="/art/<%= artData[i].art_id %>"  target="_blank"><%= artData[i].art_head %></a></h3>           <!--标题-->
         </div>

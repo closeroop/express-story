@@ -26,13 +26,15 @@
                 <li class="right_nav">Aa</li>
                 <li class="right_nav mes_nav">
                     <% if(user!==null) { %>
-                    <div id="user_come"></div>
+                    <div id="user_come" >
+                        <span class="user-face" style="display: none"><%=user%></span>
+                    </div>
                     <ul class="mes">
-                        <li><a href="/user/<%=user%>" target="_blank">我的主页</a></li>
+                        <li><a href="/user/<%=user%>" target="_blank"> 我的主页</a></li>
                         <li><a href="javascript:">收藏的文章</a></li>
                         <li><a href="javascript:">喜欢的文章</a></li>
                         <li><a href="javascript:">帮助与反馈</a></li>
-                        <li><a href="javascript:">设置</a></li>
+                        <li><a href="/infoset">设置</a></li>
                         <li><a href="/getout">退出</a></li>
                     </ul>
                     <% } else { %>
