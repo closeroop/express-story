@@ -6,6 +6,8 @@ const router = express.Router();
 let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456', database:'hobtu'});
 
 router.get('/:artid',(req,res)=>{
+    let user_head=req.session.head;     //用户头像
+    let user_come=req.session.u_id;      //用户ID
     let sql=`SELECT * from artcle_table  where art_id=${req.params.artid};`;
     db.query(sql,(err,useInfo)=>{
         if(err){
@@ -19,7 +21,7 @@ router.get('/:artid',(req,res)=>{
                     console.log(err);
                 }
                 else{
-                    res.render('article',{user:req.session.u_id,articles:articles,info:useInfo[0]});
+                    res.render('article',{user:user_come,articles:articles,info:useInfo[0],user_head:user_head});
                    // res.json({data1:data1,data2:data2});
                 }
             });

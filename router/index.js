@@ -10,7 +10,8 @@ router.get('/',(req,res)=>{
     if(req.session.u_id===undefined){   //第一次的时候  req.session.u_id 是 undefined 呀！这里其实可以省略了
         req.session.u_id=null;
     }
-    let user_come=req.session.u_id;
+    let user_come=req.session.u_id;      //用户ID
+    let user_head=req.session.head;     //用户头像
     /*................................................................................*/
     /*let pagesql=`SELECT count(*) as pages from artcle_table`;
     let pages;                                                  //数据的条数
@@ -50,7 +51,7 @@ router.get('/',(req,res)=>{
                         }
                         data[index].showart = result[index].replace(/<.*?>/g,'').replace(/\&nbsp;/g,'');
                     });
-                    res.render('home',{user:user_come,artData:data});
+                    res.render('home',{user:user_come,user_head:user_head,artData:data});
                     //console.log(data[0]);
                 }
             ).catch(()=>{

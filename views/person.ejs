@@ -56,7 +56,14 @@
                             <% } %>
                         </div>
                         <div class="art-comment">
-                            <span class="write-time"><%= artData[i].art_id %></span><a href="">评论</a>
+                            <span class="write-time"><%= artData[i].art_id %></span><a href="">评论:0</a>
+                            <a href="">喜欢:0</a> <a href="">浏览量:0</a>
+                            <% if( user === master ) {%>
+                            <div class="art-edit">
+                                <a href="/edit/<%= artData[i].art_id %> " class="edit-art">编辑</a>
+                                <a href="/delete/<%= artData[i].art_id %>" class="delete-art">删除</a>
+                            </div>
+                            <% }%>
                         </div>
                     </div>
                     <% }%>

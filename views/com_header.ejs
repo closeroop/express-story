@@ -26,9 +26,15 @@
                 <li class="right_nav">Aa</li>
                 <li class="right_nav mes_nav">
                     <% if(user!==null) { %>
-                    <div id="user_come" >
-                        <span class="user-face" style="display: none"><%=user%></span>
-                    </div>
+                        <% if(user_head!==null) { %>
+                            <div id="user_come" style="background-image: url('.<%- user_head%>')">
+                                <span class="user-face" style="display: none"><%=user%></span>
+                            </div>
+                        <%}else{%>
+                            <div id="user_come" >
+                                <span class="user-face" style="display: none"><%=user%></span>
+                            </div>
+                        <%}%>
                     <ul class="mes">
                         <li><a href="/user/<%=user%>" target="_blank"> 我的主页</a></li>
                         <li><a href="javascript:">收藏的文章</a></li>

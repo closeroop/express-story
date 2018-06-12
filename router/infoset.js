@@ -8,13 +8,14 @@ let db=mysql.createConnection({host:'127.0.0.1',user:'root',password:'123456', d
 
 router.get('/',(req,res)=>{
     let user_come=req.session.u_id;
+    let user_head=req.session.head;     //用户头像
     let sql=`SELECT * FROM user_bass WHERE u_id='${user_come}'`;
     db.query(sql,(err,data)=>{
        if(err){
            res.send('err');
            return 0;
        }
-        res.render('infoSet',{user:user_come,basicdata:data[0]});
+        res.render('infoSet',{user:user_come,basicdata:data[0],user_head:user_head});
         //console.log(data[0]);
     });
 
@@ -46,7 +47,7 @@ router.post('/portrait',(req,res)=>{
                 }
                 else{
                     let sql;
-                    if(extname===''){ //如果无扩展名，即是上传的空文件，就不更新数据库库的图片路径
+                    if(extname===''){                       //如果无扩展名，即是上传的空文件，就不更新数据库库的图片路径
                         fs.unlink(newname,function (err) {
                             if (err) {
                                 console.log(err);
@@ -67,6 +68,8 @@ router.post('/portrait',(req,res)=>{
                             });
                             return 0;
                         }
+                        req.session.head=newname;
+                        //console.log(req.session.head);
                         res.send({
                             "msg":"success"
                         });

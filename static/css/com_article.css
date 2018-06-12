@@ -84,10 +84,6 @@
 .art_header h3 a:hover{
     border-bottom: 1px solid rgb(100, 100, 100);
 }
-.art_header h3 a:visited{
-    color: rgb(142, 142, 142);
-    border-bottom: 1px solid rgb(142, 142, 142);
-}
 .art_header h3 a:after{
     content: '';
     display: block;

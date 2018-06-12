@@ -47,6 +47,10 @@ $(function () {
        let time=new Date();
        let upTime=Date.parse(time);
        let commentCount= parseInt($(".comment-list-head span").text());
+
+       let commentuser=$('#user_come').css('background-image').slice(4,-1);   //评论者头像地址
+
+       console.log(commentuser);
        //console.log(art_id);
        let updata={                     //需要上传的数据
            comment:upContent,
@@ -89,7 +93,7 @@ $(function () {
               let newCommentTime=getTime(time);
               let newNode=$(`<div class="comment-list-custom">
                                  <div class="comment-list-info">
-                                     <img src="./pic/user_tou/tou-4.jpg" alt="s">
+                                     <img src=${commentuser} alt="s">
                                      <div class="comment-list-info-1">
                                          <span class="comment-people">${u_id}</span><br>
                                          <span class="comment-time">${newCommentTime}</span>
@@ -128,9 +132,12 @@ $(function () {
           let time=new Date(data.comment_time*1);
           let commentTime=getTime(time);
           animateNo+=1;
+          if(!data.head){
+              data.head="./pic/user_tou/tou-3.jpg";
+          }
           let node=$(`<div class="comment-list-custom">
                  <div class="comment-list-info">
-                     <img src="./pic/user_tou/tou-4.jpg" alt="s">
+                     <a href="/user/${data.u_id}"><img src="../${data.head}" alt="s"></a>
                      <div class="comment-list-info-1">
                          <span class="comment-people">${data.u_id}</span><br>
                          <span class="comment-time">${commentTime}</span>
@@ -191,7 +198,7 @@ $(function () {
   });                                       //下一页按钮-----------------------
 
     /*......................................登录用户头像.............................*/
-    let face=$('.user-face').text();
+    /*let face=$('.user-face').text();
     if(face===''){    //如果没有登录就不请求
         //什么都不做
     }
@@ -204,7 +211,7 @@ $(function () {
             $('#user_come').css("background-image",`url(../${result[0].head})`);
             $('.my-head').attr('src',`../${result[0].head}`);
         });
-    }
+    }*/
     /*........................................文章作者头像..........................*/
     let master=$(".atr-master").text();
     $.post('/getface',{userhead:master},function (result) {  //获取头像
@@ -242,9 +249,12 @@ $(function () {
                 let time = new Date(data.comment_time * 1);
                 let commentTime = getTime(time);
                 animateNo+=1;
+                if(!data.head){
+                    data.head="./pic/user_tou/tou-3.jpg";
+                }
                 let node = $(`<div class="comment-list-custom">
                          <div class="comment-list-info">
-                             <img src="./pic/user_tou/tou-4.jpg" alt="s">
+                              <a href="/user/${data.u_id}"><img src="../${data.head}" alt="s"></a>
                              <div class="comment-list-info-1">
                                  <span class="comment-people">${data.u_id}</span><br>
                                  <span class="comment-time">${commentTime}</span>

@@ -21,10 +21,13 @@ $(function () {
                 let animateNo=0;
                 for(let data of datas){
                     animateNo+=1;
+                    if(!data.head){
+                        data.head="./pic/user_tou/tou-3.jpg";
+                    }
                     if(!data.pic){
                          node=$(`<div class="article">     
                                 <div class="art_header">  
-                                    <div class="user_tou">
+                                    <div class="user_tou" style="background-image: url(${data.head})">
                                         <!--头像-->
                                         <a href="/user/${data.u_id}"></a>
                                     </div>
@@ -44,7 +47,7 @@ $(function () {
                     else{
                         node=$(`<div class="article">
                          <div class="art_header">  
-                                    <div class="user_tou">
+                                    <div class="user_tou" style="background-image: url(${data.head})">
                                         <!--头像-->
                                         <a href="/user/${data.u_id}"></a>
                                     </div>
@@ -88,7 +91,7 @@ $(function () {
 
 
     /*...................................主动请求登陆者的头像................................................*/
-    let face=$('.user-face').text();
+    /*let face=$('.user-face').text();
     if(face===''){
        return 0;
     }
@@ -98,7 +101,7 @@ $(function () {
         }
         //console.log(result);
         $('#user_come').css("background-image",`url(${result[0].head})`)
-    });
+    });*/
 });
 
 

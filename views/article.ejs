@@ -14,9 +14,9 @@
 <div id="main">
     <div class="title"><h1><%= info.art_head%></h1></div>
     <div class="author">
-        <a href="#" ><img class="user-img" src="./pic/user_tou/tou-3.jpg" alt="图片"></a>
+        <a href="/user/<%= info.u_id%>" ><img class="user-img" src="./pic/user_tou/tou-3.jpg" alt="图片"></a>
         <div class="author-info">
-            <a href="" class="atr-master"><%= info.u_id%></a><a href="">+关注</a><br>
+            <a href="/user/<%= info.u_id%>" class="atr-master"><%= info.u_id%></a><a href="">+关注</a><br>
             <span class="standard_time">time</span><span class="word">字数 </span><span>阅读 256</span>
             <span>评论 <%=info.art_laud%></span><span>喜欢 <%=info.art_like%></span>
             <span class="time" style="display: none"><%=info.art_id%></span>
@@ -38,7 +38,11 @@
 <div id="comment">
     <div class="comment-all">
         <div class="comment-text">
+            <% if(user_head!==null) { %>
+            <img src=".<%- user_head%>" alt="me" class="my-head">
+            <%}else{%>
             <img src="./pic/user_tou/tou-3.jpg" alt="me" class="my-head">
+            <% } %>
             <textarea placeholder="写下你的评论" class="comment-word"></textarea>
             <div class="comment-up">
                 <div class="comment-up-stop"></div>

@@ -21,7 +21,7 @@ body{
     padding: 20px 0 20px 0;
 }
 .show-pic img{
-   width: 80px;filter: blur(0);border-radius: 50%;border: 10px solid rgba(255, 255, 255, 0.2);
+   width: 80px;height:80px;filter: blur(0);border-radius: 50%;border: 10px solid rgba(255, 255, 255, 0.2);
     margin: 0 auto;display: block;
 }
 .love-me{
@@ -124,14 +124,30 @@ a{
 }
 .art-comment{
     clear:both ;padding: 0 40px;background-color: rgba(238, 241, 237, 0.1);height: 25px;line-height: 25px;
-    color: rgba(143, 152, 137, 0.38);
 }
 .art-comment a{
-    color: rgba(143, 152, 137, 0.75);font-size: 12px;font-family: 微软雅黑;line-height: 25px;
+    color: rgba(143, 152, 137, 0.75);font-size: 12px;font-family: 微软雅黑;line-height: 25px;margin-right: 10px;
 }
 .art-comment span{
     color: rgba(143, 152, 137, 0.75);font-size: 10px;font-family: 微软雅黑;margin: 0 15px 0 0;
     line-height: 25px;
+}
+.my-art:hover .art-edit{
+    display: block;
+}
+.art-edit{
+    float: right;position: relative;right: -45px;display: none;
+}
+.art-edit a{
+    padding:0 5px;
+}
+.art-edit a:last-child:hover{
+    color: rgb(255, 255, 255);
+    background-color: #c70e04;
+}
+.art-edit a:first-child:hover{
+    color: rgb(255, 255, 255);
+    background-color: #007060;
 }
 .no-art{
     background-color: white;text-align: center;height: 80px;line-height:80px ;color: #6e6f6d;

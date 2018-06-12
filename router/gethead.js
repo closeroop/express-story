@@ -12,7 +12,7 @@ router.post('/',(req,res)=>{
            res.send('bad data');
            return 0;
        }
-        console.log("登陆者头像：");
+        console.log("请求者头像：");
         console.log(data);
         res.send(data);
     });

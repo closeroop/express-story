@@ -26,7 +26,9 @@ router.post('/up',(req,res,next)=>{
 });
 router.post('/download',(req,res)=>{
     let art_id=req.body.art_id;
-    let sql=`SELECT * FROM comment_table WHERE art_id='${art_id}' ORDER BY comment_time  DESC LIMIT 0,8`;
+    let sql=`SELECT  comment_table.*,user_bass.head FROM comment_table,user_bass 
+             WHERE art_id='${art_id}' and comment_table.u_id=user_bass.u_id
+             ORDER BY comment_table.comment_time  DESC LIMIT 0,8`;
     let sqlCommentNum=`SELECT COUNT(*) as num FROM comment_table WHERE art_id='${art_id}';`;
     db.query(sql,(err,data)=>{   //获取评论 限制的
         if(err){
@@ -51,7 +53,9 @@ router.post('/download',(req,res)=>{
 router.post('/downloadmore',(req,res)=>{
     let page=req.body.currentPage;
     let art_id=req.body.art_id;
-    let sql=`SELECT * FROM comment_table WHERE art_id='${art_id}' ORDER BY comment_time  DESC LIMIT ${page*8},8`;
+    let sql=`SELECT comment_table.*,user_bass.head FROM comment_table,user_bass 
+              WHERE art_id='${art_id}' and comment_table.u_id=user_bass.u_id 
+              ORDER BY comment_table.comment_time  DESC LIMIT ${page*8},8`;
     db.query(sql,(err,data)=>{
         if(err){
             res.status(501).send('data err');

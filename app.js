@@ -1,7 +1,6 @@
  /* jshint esversion: 6 */
     const express=require('express');
     const bodyparser=require('body-parser');
-    //const mysql=require('mysql');
     const cookieSession=require('cookie-session');
     const path=require('path');
     const login=require('./router/login');
@@ -14,6 +13,8 @@
     const userindex=require('./router/userindex');
     const infoset=require('./router/infoset');
     const  gethead=require('./router/gethead');
+    const deleteart=require('./router/deleteart');
+    const editart=require('./router/editart');
     const server=express();
     server.use(bodyparser.urlencoded({}));
     server.set('view engine','ejs') ; //输出什么东西
@@ -28,7 +29,9 @@
        if(req.session.u_id===undefined){
            req.session.u_id=null;
        }
-       server.locals.bb='Yx';
+       if(req.session.head===undefined){
+           req.session.head=null;
+       }
        //console.log(server.locals.bb);
        next();
    });                              //防止越级访问后 造成req.session.u_id为被设置为null
@@ -41,6 +44,7 @@
 
     server.get('/getout',(req,res)=>{
          req.session.u_id=null;
+         req.session.head=null;
          res.redirect('/');
     });     //用户退出
 
@@ -68,6 +72,10 @@
    server.use('/infoset',infoset);   //个人信息设置
 
     server.use('/getface',gethead); //获取头像
+
+    server.use('/delete',deleteart);  //删除文章
+
+    server.use('/edit',editart);    //修改文章   （编辑文章）
 
     server.use(express.static('./'));
     server.use(express.static('./static'));

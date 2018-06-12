@@ -13,9 +13,8 @@ router.post('/',(req,res)=>{
     //console.log( u_id +' '+ u_password);  //看看密码和账号
     //console.log( `'${u_id}'`);
     //db.connect();  去掉有助于持久链接
-    let sql=`SELECT user_table.u_id,user_table.u_password 
-              FROM user_table WHERE user_table.u_id='${u_id}'
-               `;
+    let sql=`SELECT user_table.u_id,user_table.u_password,user_bass.head FROM user_table,user_bass 
+                WHERE  user_table.u_id=user_bass.u_id and user_table.u_id='${u_id}'`;
     db.query(sql,(err,data)=>{
                if(err){
                    res.status(501).send('cuowu');
@@ -31,6 +30,7 @@ router.post('/',(req,res)=>{
                        }
                        else{
                            req.session.u_id=data[0].u_id;
+                           req.session.head=data[0].head;    //若无值就是 null
                            res.send('ok');
                        }
                    }

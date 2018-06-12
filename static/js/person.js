@@ -51,25 +51,33 @@ $(function () {
         let writeTime=getTime(time2);
         $(".write-time")[i].textContent=writeTime;
     }
-    /*............................格式化是时间..............end.................................*/
+    /*............................格式化时间..............end.................................*/
     if(artLength){
         $(".no-art").hide();
     }
-
-
-    /*...................................主动请求登陆者的头像................................................*/
-
-    let face=$('.user-face').text();
-    if(face===''){    //如果没有登录就不请求
-        return 0;
-    }
-    $.post('/getface',{userhead:face},function (result) {  //获取头像
-        if(result==='bad data'||result[0].head===null){
+    /*............................文章删除..............s.................................*/
+    $(".delete-art").click(function(e){
+        e.preventDefault();
+        $this=$(this);
+        let title=$this.parents().filter(".my-art").find('h3').text();//获得标题
+        let split=$(this)[0].href.split('/');  //对链接分组  得到一个数组
+        let artID=split[split.length-1];      //得到文章ID
+        let confirm = window.confirm(`确定要删除文章《${title}》？`);
+        if(!confirm){
+            alert("虚惊一场");
             return 0;
         }
-        //console.log(result);
-        $('#user_come').css("background-image",`url(../${result[0].head})`)
+       $.post(`/delete/${artID}`,function (result) {
+           result=JSON.parse(result);
+           if(result.msg==="delete success"){
+               $this.parents(".my-art").remove();
+               /*$this.parents().filter(".my-art")*/     //二选一    找到该元素的指定祖先 然后移除
+               return 0;
+           }
+           alert("delete fail");
+       })
     });
+    /*............................文章删除..............end.................................*/
 });
 
 function getTime(time) {

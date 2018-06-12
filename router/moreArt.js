@@ -32,7 +32,8 @@ router.post('/',(req,res)=>{
     let page=req.body.page;
     //console.log(page);
 
-    let sql = `SELECT * from artcle_table  ORDER BY art_id  DESC  LIMIT ${page*4+8},4`; //每次获取4条数据
+    let sql = `SELECT artcle_table.*,user_bass.* from artcle_table,user_bass  WHERE 
+                artcle_table.u_id=user_bass.u_id  ORDER BY art_id  DESC  LIMIT ${page*4+8},4`; //每次获取4条数据
     db.query(sql, (err, data) => {
         if (err) {
             res.status(500).send('Bad database');
