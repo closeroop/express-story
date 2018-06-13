@@ -3,6 +3,7 @@
     const bodyparser=require('body-parser');
     const cookieSession=require('cookie-session');
     const path=require('path');
+    const favicon = require('serve-favicon');
     const login=require('./router/login');
     const  index=require('./router/index');
     const  readdata=require('./router/readdata');
@@ -16,9 +17,10 @@
     const deleteart=require('./router/deleteart');
     const editart=require('./router/editart');
     const server=express();
-    server.use(bodyparser.urlencoded({}));
     server.set('view engine','ejs') ; //输出什么东西
     server.set('views',path.join(__dirname, "views"));   //模板文件位置
+    server.use(favicon(path.join(__dirname,'favicon.ico'))); //图标  失败了
+     server.use(bodyparser.urlencoded({extended: false}));
     server.use(cookieSession({
                         name:'Yx',   //会话名
                         keys:['ok','nice','yours'],   //秘钥
@@ -81,7 +83,7 @@
     server.use(express.static('./static'));
     server.use('/art',express.static('./static'));
     server.use('/user',express.static('./static'));
-
+    server.use('/edit',express.static('./static'));
      server.use((req,res,next)=>{
          res.status(404).send('sorry');   //404页面  一定要写最后啊
      });

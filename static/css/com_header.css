@@ -58,10 +58,6 @@ li{
      float: left;
      margin-left: -240px;
  }
- .right_nav:last-child{
-    background-color: rgba(0, 95, 99, 0.64);color: white;border-radius:20px;height: 40px;line-height: 40px;
-     padding: 0 25px;margin: 5px 0;font-size: 16px;
- }
 .mes_nav{
      position: relative;padding: 0 18px 0 10px;
  }
@@ -81,9 +77,10 @@ li{
     background-color: rgba(36, 35, 36, 0.1);transition: all .2s ;
 }
 .mes li a,.right_nav a{
-    display: block;text-align: center;
-    text-decoration: none;color: inherit;
+    display: block;text-align: center;font-size: 16px;
+    text-decoration: none;color: rgb(77, 77, 77);
 }
+
 #user_come{
     width: 40px;height: 40px;background: url("../pic/user_tou/tou-3.jpg") center/cover;
     border-radius: 50%;margin-top: calc(50% - 15px);margin-bottom: 5px;
@@ -100,6 +97,16 @@ li{
     transform: rotate(180deg);
     transform-origin: 50% 75%;
     transition: transform 1s;
+}
+.write_art{
+     background-color: rgba(0, 95, 99, 0.6);border-radius:20px;height: 40px;line-height: 40px;
+     padding: 0 25px;margin: 5px 0;font-size: 16px;
+ }
+.write_art a{
+    color: white;
+}
+.write_art:hover{
+    background-color: rgba(0, 95, 99, 0.7);
 }
 
 

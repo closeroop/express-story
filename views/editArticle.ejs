@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=info.art_head%></title>
+    <link rel="stylesheet" href="./css/editArticle.css">
+    <link rel="stylesheet" href="./css/com_header.css">     <!--导航样式表-->
+</head>
+<body >
+    <div id="nav_top">
+        <%- include com_header.ejs %>   <!--头部-->
+    </div>
+   <div id="home">
+       <div id="content">
+           <div id="title"><label><input id="getTitle"  class="my-title" placeholder="请输入标题"
+                                         autocomplete="off" value="<%=info.art_head%>"></label></div>
+           <div id="div1" class="toolbar">
+           </div>
+           <div id="con_sup">   <!--内容支持-->
+               <div id="div2" class="text">
+                   <%-articles %>
+               </div>
+           </div>
+       </div>
+       <div id="navigator">
+           <div id="mascot">
+               <img src="./pic/user_tou/tou-4.jpg" alt="头像" title="没错 可爱的你">
+           </div>
+           <div class="btns">
+               <div  class="btn btn-1">
+                   <a href="/user/<%= info.u_id%>">返回个人中心</a>
+               </div>
+               <div  class="btn btn-2 ">
+                   <a href="#">保存</a>
+               </div>
+           </div>
+       </div>
+   </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="./js/wangEditor.min.js"></script>
+<script src="./js/editArticle.js"></script>
+</html>

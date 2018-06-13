@@ -2,13 +2,18 @@ html,body{
     height: 100%;
 }
 body{
-    padding: 0;overflow-x: hidden;overflow-y: hidden;
+    padding: 0;//overflow-x: hidden;overflow-y: hidden;
     margin: 0;background: url("../pic/424827.jpg") center/cover;
+}
+#nav_top{
+    height: 50px;
+    position: fixed;width: 100%;
+    top:0;z-index: 999;
 }
 #home{
     height: 90%;width: 80%;min-width: 1100px;min-height: 700px;
-    margin: 0 auto;z-index: 2;
-    position: relative;display: none;padding:2%;
+    margin: 0 auto;z-index: 2;max-width: 1335px;
+    position: relative;display: none;padding:2%;padding-top:60px;
 }
 /*......................短短的分割线....右边部分.........................................................*/
 #con_sup{
@@ -23,7 +28,7 @@ body{
     width:80%;height: 100%;
     float: left;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 1);
 }
 #title{
     border: 1px solid #ccc ;box-sizing: border-box;
@@ -39,23 +44,30 @@ body{
 #navigator{
     width: 20%;float: left;height: 100%;
     background-color: rgb(144, 166, 179);
+    position: relative;
 }
 a{
     text-decoration: none;
 }
-#btn{
-    width: 80%;margin: 55px auto 10px;box-sizing: border-box;background-color: #f4a720;
-    height: 40px;border:1px solid rgba(255, 165, 0, 0.47);border-radius: 20px;
+.btns{
+    position: absolute;bottom: 0;left: 0; width: 100%;
 }
-#btn a{
-    display: block;line-height: 40px;text-align: center;font-size: 1.0em;color: #eeeeee;
+.btn{
+    margin: 20px auto 20px;box-sizing: border-box;background-color: #ffb120;width: 80%;
+    height: 40px;border:1px solid rgba(255, 165, 0, 0.47);
+}
+.btn-2{
+    background-color: #f94242;
+}
+.btn a{
+    display: block;line-height: 40px;text-align: center;font-size: 1.0em;color: #ffffff;
     font-family: 宋体;
 }
-#btn:hover{
-    background-color: #ff9614;border: none;
+.btn-2:hover{
+    background-color: #e23e3e;
 }
-#btn:hover a{
-    font-weight: 600;
+.btn-1:hover{
+    background-color: #f0a420;
 }
 .w-e-menu{
     transition: all .5s ease-out;
@@ -63,14 +75,6 @@ a{
 .w-e-menu:hover{
     background-color: rgba(202, 202, 202, 0.7);
     transition: background-color .5s ease-out;
-}
-#showPic{
-    position: absolute;left:0;top:0;
-    width: 80px;height: 30px;background-color: #ffa500;color: white;
-    text-align: center;line-height: 30px;font-size: 14px;cursor: pointer;
-}
-#showPic:hover{
-    background-color: #ff2e34;
 }
 #mascot{
     margin-top: 50px;
