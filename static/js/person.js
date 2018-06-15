@@ -52,11 +52,14 @@ $(function () {
         $(".write-time")[i].textContent=writeTime;
     }
     /*............................格式化时间..............end.................................*/
+
     if(artLength){
         $(".no-art").hide();
+        $('.add-more').show();
     }
+
     /*............................文章删除..............s.................................*/
-    $(".delete-art").click(function(e){
+    $(".art-me-list").on("click",".delete-art",function(e){   //动态绑定事件
         e.preventDefault();
         $this=$(this);
         let title=$this.parents().filter(".my-art").find('h3').text();//获得标题
@@ -78,6 +81,76 @@ $(function () {
        })
     });
     /*............................文章删除..............end.................................*/
+
+    /*............................加载更多文章..............start.................................*/
+    let number=0;
+    $(".add-more").click(function () {
+        let master=$(".master").text();
+        let user=$(".user-face").text();
+        $.ajax({
+            type: "post",
+            url: "/moreArt",
+            data:{ page:number,classify:'person',master:master },
+            beforeSend: function () {
+
+            },
+            success:function (datas) {
+                if(datas.length===0){
+                    $('.add-more a').text('没有更多了');
+                    return 0;
+                }
+                let node;
+                for(let data of datas){
+                    let picpart;
+                    let artpadding;
+                    let edit;
+                    let time=getTime(new Date(data.art_id*1));
+                    if(data.pic){
+                         picpart=`<a href="/art/${data.art_id }" class="art-pic" style="background: url(${data.pic}) center/cover no-repeat"  target="_blank"></a>`;
+                         artpadding=``;
+                    }
+                    else {
+                        picpart=``;
+                        artpadding=`style="padding-right: 0"`;
+                    }
+                    if(user===master){
+                        edit=`<div class="art-edit">
+                                <a href="/edit/${ data.art_id } " class="edit-art" target="_blank">编辑</a>
+                                <a href="/delete/${ data.art_id }" class="delete-art">删除</a>
+                            </div>`;
+                    }
+                    else {
+                        edit=``;
+                    }
+                    node=$(`<div class="my-art">
+                        <div class="art-intro">
+                            <h3><a href="/art/${ data.art_id }" target="_blank">${ data.art_head }</a></h3>
+                            ${picpart}                                    
+                            <p ${artpadding}>
+                                ${data.showart.slice(0,80)}.......
+                            </p>                          
+                        </div>
+                        <div class="art-comment">
+                            <span class="write-time">${ time }</span><a href="">评论:0</a>
+                            <a href="">喜欢:0</a> <a href="">浏览量:0</a>
+                               ${edit}                                    
+                        </div>
+                    </div>`);
+                    $(".art-me-list").append(node);
+                }
+            },
+            complete:function () {
+                number+=1;
+                console.log(number);
+                window.localStorage.setItem("page",number);
+                $(".art-me-list").append($('.add-more'));
+            }
+        })
+    });
+    /*............................加载更多文章..............end.................................*/
+    window.onunload =function () {
+        window.localStorage.removeItem("page");
+    }
 });
 
 function getTime(time) {

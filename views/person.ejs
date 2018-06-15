@@ -20,7 +20,7 @@
              <%}%>
          </div>
          <div class="love-me">
-             <h2><%= master %></h2>
+             <h2 class="master"><%= master %></h2>
              <% if( user !== master ) {%>
                <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
              <% }%>
@@ -40,7 +40,7 @@
                     <% for(let i in artData){ %>
                     <div class="my-art">
                         <div class="art-intro">
-                            <h3><a href="/art/<%= artData[i].art_id %>"><%= artData[i].art_head %></a></h3>
+                            <h3><a href="/art/<%= artData[i].art_id %>" target="_blank"><%= artData[i].art_head %></a></h3>
                             <% if(artData[i].pic){ %>
                             <a href="/art/<%=artData[i].art_id %>" class="art-pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank">
                                 </a>
@@ -60,7 +60,7 @@
                             <a href="">喜欢:0</a> <a href="">浏览量:0</a>
                             <% if( user === master ) {%>
                             <div class="art-edit">
-                                <a href="/edit/<%= artData[i].art_id %> " class="edit-art">编辑</a>
+                                <a href="/edit/<%= artData[i].art_id %>  " target="_blank" class="edit-art">编辑</a>
                                 <a href="/delete/<%= artData[i].art_id %>" class="delete-art">删除</a>
                             </div>
                             <% }%>
@@ -70,11 +70,13 @@
                     <div class="no-art">
                         我在憋大招呢 (╯°Д°)╯︵┻━┻
                     </div>
+                    <div class="add-more"><a href="javascript:">加载更多.........</a></div>
                 </div>
 
          </div>
          <div class="art-me-like">
-
+                两岸猿声啼不住<br>
+                轻舟已过万重山
          </div>
      </div>
 </body>

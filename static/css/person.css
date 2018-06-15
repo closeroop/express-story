@@ -2,7 +2,7 @@
     padding: 0;margin: 0;
 }
 body{
-    overflow-x: hidden;height: 100%;background: url("../pic/7775.jpg") center/cover fixed ;
+    overflow-x: hidden;height: 100%;//background: url("../pic/7775.jpg") center/cover fixed ;
 }
 #nav_top{
     height: 50px;
@@ -15,7 +15,7 @@ body{
 }
 .show-bgd{
     height: 100%;width: 100%;position: absolute;
-    background: url("../pic/IMG_20170823_211917.JPG") center/cover;filter: blur(0px);padding: 15px;margin: -15px;
+    background: url("../pic/background-1.jpg") center/cover;filter: blur(0px);padding: 15px;margin: -15px;
 }
 .show-pic{
     padding: 20px 0 20px 0;
@@ -75,6 +75,7 @@ body{
 }
 .art-me-like{
     width: 33%;height:400px;background-color: #ffffff;float: right;
+    text-align: center;color: #8f9889;padding-top: 150px;
 }
 .art-me-nav{
     height: 40px;border-bottom: 1px solid #cccccc;background-color: white;
@@ -88,7 +89,7 @@ a{
     text-align: center;line-height: 40px;
 }
 .underline{
-    height: 3px;width: 100%;display: block;background-color: #ff601d;transform: rotateY(90deg);
+    height: 2px;width: 100%;display: block;background-color: #40b22d;transform: rotateY(90deg);
     transition: transform 0.3s ease-in-out;
 }
 /*.art-me-nav a:hover .underline{
@@ -106,17 +107,17 @@ a{
     padding: 10px 0 10px 10px;position: relative;height: 100px;
 }
 .art-intro h3 a{
-   padding: 0 10px 0 30px;font-family: 微软雅黑;color: rgb(50, 51, 52);font-size: 18px;
+   padding: 0 10px 0 30px;font-family: 微软雅黑;color: rgb(64, 65, 66);font-size: 18px;
 }
 .art-intro h3 a:hover{
-    text-decoration: underline;
+    text-decoration: underline;color: #40b22d;
 }
 .art-pic{
     margin-right: 0;margin-left: 10px;position: absolute;right: 0;top: 10px;width: 120px;height: 110px;
     border-radius: 5px;
 }
 .art-intro p{
-    margin: 10px 0;color: rgba(45, 52, 54, 0.8);font-size: 14px;padding-right: 130px;
+    margin: 10px 0;color: rgba(45, 52, 54, 0.73);font-size: 14px;padding-right: 130px;
     line-height:20px;font-family: 微软雅黑;
 }
 .art-intro p::first-letter{
@@ -151,4 +152,13 @@ a{
 }
 .no-art{
     background-color: white;text-align: center;height: 80px;line-height:80px ;color: #6e6f6d;
+}
+.add-more{
+    width: 100%;text-align: center; font-size: 14px;display: none;
+}
+.add-more a{
+    color: #8f9889;display: block;padding-top: 5px;
+}
+.add-more a:hover{
+    text-decoration: underline;
 }

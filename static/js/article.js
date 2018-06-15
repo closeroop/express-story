@@ -37,7 +37,6 @@ $(function () {
        setTimeout(()=>{
            $(".comment-text").animate({'padding-bottom':'0px'},500);
        },310)
-
    });
 
    $(".comment-up-me").click((e)=>{                                         //上传评论---------------------------
@@ -48,9 +47,6 @@ $(function () {
        let upTime=Date.parse(time);
        let commentCount= parseInt($(".comment-list-head span").text());
 
-       let commentuser=$('#user_come').css('background-image').slice(4,-1);   //评论者头像地址
-
-       console.log(commentuser);
        //console.log(art_id);
        let updata={                     //需要上传的数据
            comment:upContent,
@@ -85,6 +81,7 @@ $(function () {
                   return 0;
               }
               console.log(data.responseJSON);
+              let commentuser=$('#user_come').css('background-image').slice(4,-1);   //评论者头像地址
               let u_id= data.responseJSON.u_id;
               $(".comment-up-me").text('提交');
               $(".comment-up-animate").css("transform","rotateY(0deg)").fadeOut(2000);
@@ -97,7 +94,7 @@ $(function () {
                                      <div class="comment-list-info-1">
                                          <span class="comment-people">${u_id}</span><br>
                                          <span class="comment-time">${newCommentTime}</span>
-                                         <a href="javascript:">回复 TA</a>
+                                         <a href="javascript:" class="reply">回复 TA</a>
                                      </div>
                                      <div class="comment-list-info-2">
                                         ${upContent}
@@ -113,7 +110,7 @@ $(function () {
               commonpage=commentCount+1;
           }
       })
-   });
+   });      //上传评论---------------------------
 
   $.post('/comment/download',{art_id:art_id},function (datas) {        //初始展示的评论--------------------
       console.log(datas);
@@ -141,16 +138,15 @@ $(function () {
                      <div class="comment-list-info-1">
                          <span class="comment-people">${data.u_id}</span><br>
                          <span class="comment-time">${commentTime}</span>
-                         <a href="javascript:">回复 TA</a>
+                         <span style="display: none" class="origin-comment-time">${data.comment_time}</span>
+                         <a href="javascript:" class="reply">回复 TA</a>
                      </div>
                      <div class="comment-list-info-2">
                         ${data.comment_content}
                      </div>
                  </div>
-                <div class="comment-list-back" style="display: none">   
-                    <a href="javascript:">Yx </a>:<a href="javascript:"> @Yw </a>
-                    <span> 这是后期工作了</span><br>
-                    <span>2018-2-33</span>
+                <div class="comment-list-back" >                    
+                                                                          
                 </div>
              </div>`);
           if(animateNo%2===0){
@@ -165,7 +161,7 @@ $(function () {
           $(".comment-page").hide();
       }
       //console.log(datas.data);
-  });
+  });   //初始展示的评论--------------------
 
   $(".page-pre").click(()=>{
       maxPage=Math.ceil(commonpage/8);     //  最大页数获取
@@ -197,21 +193,6 @@ $(function () {
       window.scroll(0,$(".comment-list-head")[0].offsetTop-300);
   });                                       //下一页按钮-----------------------
 
-    /*......................................登录用户头像.............................*/
-    /*let face=$('.user-face').text();
-    if(face===''){    //如果没有登录就不请求
-        //什么都不做
-    }
-    else {
-        $.post('/getface',{userhead:face},function (result) {  //获取头像
-            if(result==='bad data'||result[0].head===null){
-                return 0;
-            }
-            //console.log(result);
-            $('#user_come').css("background-image",`url(../${result[0].head})`);
-            $('.my-head').attr('src',`../${result[0].head}`);
-        });
-    }*/
     /*........................................文章作者头像..........................*/
     let master=$(".atr-master").text();
     $.post('/getface',{userhead:master},function (result) {  //获取头像
@@ -221,6 +202,102 @@ $(function () {
         //console.log(result);
         $('.user-img').attr('src',`../${result[0].head}`);
     });
+    /*........................................文章作者头像..........................*/
+    /*........................................回复的回复........start..................*/
+    let whoComment;  //玩家对玩家 还是玩家对电脑？<-----p2p- or -p2a---->    玩家相互留言 or 玩家对作者留言
+    $(".comment-list").on('click','.reply',function () {
+        //回复框站位
+       let replyholder= $(this).parents().filter(".comment-list-info-1").find(".comment-people").text().trim();
+        let replyNode=`<div class="user-comment">
+                       <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
+                       <div class="user-comment-up">
+                            <div class=" user-me-up" >发送</div>
+                            <a href="javascript:">取消</a>
+                       </div>
+                   </div>`;
+        /* $(this).parents().filter('.comment-list-info').next().show();*/
+        $(this).parents().filter(".comment-list-info").next().append(replyNode);
+        $(this).hide();
+        $(this).parents().filter(".comment-list-info").next().find(".reply-comment").hide();
+        whoComment='p2a';
+    });
+    $(".comment-list").on('click','.user-comment-up a',function () {
+        $(this).parents().filter(".comment-list-back").prev().find('.reply').show();
+        $(this).parents().filter(".comment-list-back").find(".reply-comment").show();
+        $(this).parents().filter(".user-comment").remove();
+    });
+    $(".comment-list").on('click','.user-me-up',function () {
+        let art_id=$(".time").text();
+        let comment_user=$(".user-face").text();
+        let commented_user=$(this).parents().filter(".comment-list-back").prev().find(".comment-people").text().trim();
+        let content=$(this).parent().prev().val();
+        let comment_id=$(this).parents().filter(".comment-list-back").prev().find(".origin-comment-time").text().trim();
+        let now= new Date();
+        let commentTime=Date.parse(now);
+        let standardTime=getTime(now);
+        if(whoComment==='p2p'){
+            commented_user=$(this).parent().prev().attr('placeholder').slice(1);
+        }
+        if(comment_user===''){
+            alert("请先登录");
+            return 0;
+        }
+        if(content.replace(/\s/g,'')===''){
+            alert("无字天书吗？");
+            return 0;
+        }
+        let updata={
+            art_id:art_id,
+            comment_user:comment_user,
+            commented_user:commented_user,
+            comment_time:commentTime,
+            content:content,
+            comment_id:comment_id
+        };
+        $this=$(this);
+        $.ajax({
+            type: "post",
+            url: "/comment/comtocom",
+            data: updata,
+            beforeSend: function () {
+
+            },
+            success:function (data) {
+                if(data==='ok'){
+                    let commentNode=$(`<div class="back-list">
+                                           <a href="javascript:">${comment_user} </a>:<a href="javascript:"> @${commented_user} :</a>
+                                            <span>${content}</span><br>
+                                            <span>${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                        </div>`);
+                    $this.parents().filter(".comment-list-back").append(commentNode);
+
+                }
+            },
+            complete:function () {
+                $this.parents().filter(".comment-list-back").prev().find('.reply').show();
+                $this.parents().filter(".comment-list-back").find(".reply-comment").show();
+                $this.parents().filter(".user-comment").remove();
+            }
+        })
+    });
+
+    $(".comment-list").on('click','.reply-comment',function () {  //回复其他人
+        let replyholder= $(this).siblings(":first").text().trim();// @的人
+        let replyNode=`<div class="user-comment">
+                       <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
+                       <div class="user-comment-up">
+                            <div class=" user-me-up" >发送</div>
+                            <a href="javascript:">取消</a>
+                       </div>
+                   </div>`;
+         $(this).parents().filter(".comment-list-back").append(replyNode);
+         $(this).hide();
+         $(this).parent().siblings().find(".reply-comment").hide();
+         $(this).parents().filter(".comment-list-back").prev().find('.reply').hide();
+         whoComment='p2p';
+    });
+
+    /*........................................回复的回复.......end...................*/
 });
 
  /*---------------------------------------------几个全局方法------------------------------------*/
@@ -258,16 +335,19 @@ $(function () {
                              <div class="comment-list-info-1">
                                  <span class="comment-people">${data.u_id}</span><br>
                                  <span class="comment-time">${commentTime}</span>
-                                 <a href="javascript:">回复 TA</a>
+                                 <span style="display: none" class="origin-comment-time">${data.comment_time}</span>
+                                 <a href="javascript:" class="reply">回复 TA</a>
                              </div>
                              <div class="comment-list-info-2">
                                 ${data.comment_content}
                              </div>
                          </div>
-                        <div class="comment-list-back" style="display: none">   
-                            <a href="javascript:">Yx </a>:<a href="javascript:"> @Yw </a>
-                            <span> 这是后期工作了</span><br>
-                            <span>2018-2-33</span>
+                        <div class="comment-list-back" >   
+                              <div class="back-list" style="display:none">
+                                    <a href="javascript:">Yx </a>:<a href="javascript:"> @Yw </a>
+                                    <span> 这是后期工作了</span><br>
+                                    <span>2018-2-33</span>
+                             </div> 
                         </div>
                      </div>`);
                 if(animateNo%2===0){
@@ -295,3 +375,11 @@ $(function () {
              }
              return num;
          }
+        let node2=`<div class="user-comment">
+                       <textarea placeholder="@YY" class="comment-word reply-word"></textarea>  
+                       <div class="user-comment-up">
+                            <div class=" user-me-up" >发送</div>
+                            <a href="javascript:">取消</a>
+                       </div>
+                   </div>`;    //m-m
+     let abbd;

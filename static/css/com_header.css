@@ -19,7 +19,7 @@ header{
     float: left;//padding-right: 120px;
 }
  #left span{
-    font-size:30px;line-height: 50px;color: #004b3f;font-weight: 600;
+    font-size:26px;line-height: 50px;color: #40b22d;font-family: 微软雅黑;
 }
 #middle{
     float: left;width: calc(100% - 150px);margin-left: 50px;

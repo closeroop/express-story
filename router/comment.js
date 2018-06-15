@@ -64,4 +64,13 @@ router.post('/downloadmore',(req,res)=>{
         res.send(data);
     });
 });
+router.post('/comtocom',(req,res)=>{
+    let art_id=req.body.art_id;
+    let comment_user=req.body.comment_user;
+    let commented_user=req.body.commented_user;
+    let commentTime=req.body.comment_time;
+    let content=req.body.content;
+    let comment_id=req.body.comment_id;
+    res.send("ok");
+});
 module.exports=router;

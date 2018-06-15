@@ -30,10 +30,17 @@ function readdata(datas) {
 
 router.post('/',(req,res)=>{
     let page=req.body.page;
-    //console.log(page);
-
-    let sql = `SELECT artcle_table.*,user_bass.* from artcle_table,user_bass  WHERE 
+    let classify=req.body.classify;
+    let sql;
+    if(classify==='common'){
+        sql = `SELECT artcle_table.*,user_bass.* from artcle_table,user_bass  WHERE 
                 artcle_table.u_id=user_bass.u_id  ORDER BY art_id  DESC  LIMIT ${page*4+8},4`; //每次获取4条数据
+    }
+    else {
+        let master=req.body.master;
+        sql = `SELECT * FROM artcle_table WHERE u_id='${master}' ORDER BY art_id  DESC  LIMIT ${page*4+4},4`;
+                                                                                                //每次获取4条数据
+    }
     db.query(sql, (err, data) => {
         if (err) {
             res.status(500).send('Bad database');

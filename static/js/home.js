@@ -6,7 +6,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: "/moreArt",
-            data:{ page:number },
+            data:{ page:number ,classify:'common'},
             beforeSend: function () {
                 $(".stop-more").show();
                 $(".add-animate").show();
@@ -14,7 +14,6 @@ $(function () {
             success: function (datas) {
                 if(datas.length===0){
                     $(".add-animate").show().text('客官请回，今日打烊了...');
-
                     return 0;
                 }
                 let node=null;

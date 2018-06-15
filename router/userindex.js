@@ -64,7 +64,7 @@ router.get('/:u_id',(req,res,next)=>{
                 }*/
            let findDate=data.u_id;
            let masterhead=data.head;
-        let sql=`SELECT * FROM artcle_table WHERE u_id='${findDate}'  ORDER BY art_id  DESC  LIMIT 0,8`;
+        let sql=`SELECT * FROM artcle_table WHERE u_id='${findDate}'  ORDER BY art_id  DESC  LIMIT 0,4`;
             db.query(sql, (err, data) => {
                 if (err) {
                     res.status(500).send('Bad database');
@@ -75,12 +75,12 @@ router.get('/:u_id',(req,res,next)=>{
                     let promise2= readdata(data[1]);
                     let promise3= readdata(data[2]);
                     let promise4= readdata(data[3]);
-                    let promise5= readdata(data[4]);
+                    /*let promise5= readdata(data[4]);
                     let promise6= readdata(data[5]);
                     let promise7= readdata(data[6]);
-                    let promise8= readdata(data[7]);
+                    let promise8= readdata(data[7]);*/
                     let promiseLine=[];
-                    promiseLine.push(...[promise1,promise2,promise3,promise4,promise5,promise6,promise7,promise8]);
+                    promiseLine.push(...[promise1,promise2,promise3,promise4]);
                     Promise.all(promiseLine).then((result)=>{
                             data.forEach((item ,index)=>{
                                 if(result[index].match(/src=".*?"/)){
