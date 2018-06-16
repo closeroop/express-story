@@ -1,5 +1,5 @@
 body{
-    background-color: rgba(241, 242, 246, 0.48);
+    //background-color: rgba(241, 242, 246, 0.2);
 }
 #home_top{
     height: 50px;
@@ -7,7 +7,7 @@ body{
     top:0;z-index: 999;
 }
 #main{
-    width:650px;
+    width:700px;
     margin: 100px auto 0;
     background-color: white;
     padding: 20px 20px 0;
@@ -20,6 +20,7 @@ body{
     height: 100px;width: 100%;line-height: 100px;
     //background-color: #a29bfe;
     background: linear-gradient(45deg, rgba(162, 155, 254, 0.7) 25%, rgba(108, 92, 231, 0.7));
+    //background: linear-gradient(45deg, rgba(64, 178, 45, 0.75) 25%, rgb(64, 178, 45));
     border-radius: 5px;
     margin: 10px 0;
 }
@@ -49,10 +50,12 @@ a{
 
 }
 .article img{
-    //height: 500px; margin: 10px 0;border-radius: 5px;transition: transform .3s;cursor: pointer;
+    //height: 500px; margin: 10px 0;border-radius: 5px;
+    transition: all .3s;cursor: pointer;
+
 }
 .article img:hover{
-    //box-shadow: 0 0 5px 2px rgba(107, 143, 255, 0.75);
+    box-shadow: 0 0 15px 0 rgba(34, 34, 34, 0.2);
     transform:scale(1.02);transition: transform .3s;
 }
 .article{
@@ -74,32 +77,40 @@ li{
 .big-pic{
     height: 80%;width: 80%;position:fixed;top: 10%;left: 10%;
     display: none;background-size:cover;background-position: center;border-radius: 10px;z-index: 10;
+    box-shadow: 0 0 15px 0 rgba(34, 34, 34, 0.2);
 }
 #comment{
-    background-color: #515a66;
+    //background-color: #515a66;
     margin-top: 10px;padding-top: 20px;
 }
 .comment-all{
-    width:700px;
+    width:740px;
     margin: 0 auto ;//background-color: #ffbe76;//height: 600px;
 }
 .comment-text{
-    width: 100%;min-height: 150px;background-color: #383d44; position: relative;
+    width: 100%;min-height: 150px;
+    //background-color: #383d44; position: relative;
+    background-color: white;
     transition: height .5s;
-
+    border-top: 2px solid rgba(255, 69, 0, 0.8);
 }
 .comment-text textarea,.comment-word{
-    width: 80%;height: 90px;float: right;resize: none;font-size: 14px;
-    font-family:"Agency FB";padding:5px;outline: none;margin: 20px 30px 0 0;
-    background-color: rgb(250, 250, 252);color: #403e40;border-radius: 5px;border: none;
+    width: 610px;height: 90px;float: right;resize: none;font-size: 14px;
+    font-family: 微软雅黑;padding:5px;outline: none;margin: 20px 20px 0 0;
+    background-color: rgb(252, 252, 254);color: #403e40;border-radius: 5px;
+    border: 1px solid rgba(191, 191, 191, 0.25);transition: all .5s ease-out;
 }
 .comment-text:after{
     content: '';
-    display: block;
+    display: none;
     height: 0;width: 0;
     border: 20px solid transparent;position: absolute;
     border-right-color: rgb(250, 250, 252);
-    top:20px;left:63px;border-radius: 5px;
+    top:20px;left:60px;border-radius: 5px;
+}
+.comment-word:hover{
+    border: 1px solid rgba(46, 122, 30, 0.4);
+    transition: all .5s ease-out;
 }
 .user-comment:after{
     content: '';display: block;clear: both;
@@ -126,8 +137,8 @@ li{
     color: white;text-align: center;border-radius: 5px;font-size: 14px;cursor: pointer;
 }
 .my-head{
-    height: 40px;width:40px;border-radius: 50%;margin: 20px 25px 0;
-    cursor: pointer;
+    height: 45px;width:45px;border-radius: 50%;margin: 20px 25px 0;
+    cursor: pointer;border:1px solid rgba(135, 205, 41, 0.2);
 }
 .comment-up{
     height: 35px;width: 100%;
@@ -153,13 +164,16 @@ li{
     transform-origin: 0 50%;transform:rotateY(90deg);
 }
 .comment-list{
-    background-color: #383d44;//height: 300px;margin:10px 0;padding: 10px;
+    //background-color: #383d44;//height: 300px;margin:10px 0;//padding: 10px;
 }
 .comment-list-head{
-    height: 30px;background-color: #fafafc;line-height: 30px;margin: 0 20px 10px 20px;
+    height: 30px;//background-color: #fafafc;line-height: 30px;margin: 0 ;
+    border-bottom: 1px solid rgba(190, 190, 190, 0.4);
 }
 .comment-list-head span{
-    margin: 0 10px;color: #323334;font-weight: 400;font-family: "Agency FB";
+    color: #323334;font-weight: 400;font-family: "Agency FB";padding: 5px 10px;
+    color: rgba(67, 191, 69, 1);border-bottom: 2px solid rgba(40, 149, 40, 0.9);
+    cursor: pointer;
 }
 .comment-list-head-sort{
     float: right;width: 150px;text-align: center;
@@ -168,7 +182,7 @@ li{
     font-size: 12px;color: #666869;
 }
 .comment-list-head-sort a:hover{
-    color: #1c1d1e;
+    color: #565758;text-decoration: underline;
 }
 @keyframes comment-animate-left {
     0%  { left:30px }
@@ -181,21 +195,21 @@ li{
     100% { left: 0}
 }
 .comment-list-custom{
-    //height: 300px;background-color: #fafafc;margin: 0 20px;
+    //height: 300px;//background-color: #fafafc;
     padding: 10px 10px;//border-bottom: 1px solid rgba(128, 128, 128, 0.38);
-    position: relative;
+    position: relative;border-bottom: 1px solid rgba(190, 190, 190, 0.4);
 }
 .comment-list-custom img{
     height: 40px;width: 40px;
     border-radius: 50%;vertical-align: text-top;
-    float: left;
+    float: left;border:1px solid rgba(0, 128, 0, 0.2);
 }
 .comment-list-info-1{
     float: left;line-height: 20px;font-size: 12px;padding: 0 10px;
-    color: #323334;height: 60px;
+    color: white;height: 60px;
 }
 .comment-list-info-1 a,.reply-comment{
-    color: #eff7eb ;margin: 0 10px;background-color: rgba(24, 27, 255, 0.29);padding:0 5px ;
+    color: white ;margin: 0 10px;background-color: rgba(24, 27, 255, 0.29);padding:0 5px ;
 }
 .comment-list-info-1 a:hover,.reply-comment:hover{
     background-color: rgba(24, 27, 255, 0.8);
@@ -204,18 +218,21 @@ li{
     clear: both;margin: 10px 10px 0 50px;font-family:微软雅黑;color: #6c6a6c;
     font-size: 14px;padding: 10px;//background-color: rgba(223, 223, 223, 0.5);
     position: relative;line-height: 20px;
-    background: linear-gradient(-145deg,transparent 10px,rgba(223, 223, 223, 0.5 ) 10px, rgba(223, 223, 223, 0.5 ) 100%);
+    //background: linear-gradient(-145deg,transparent 10px,rgba(223, 223, 223, 0.5 ) 10px, rgba(223, 223, 223, 0.5 ) 100%);
 }
 .comment-list-info-2:after{
     content: '';
-    display: block;width: 0;height: 0;border: 15px solid transparent;
+    display: none;width: 0;height: 0;border: 15px solid transparent;
     position: absolute;border-bottom-color: rgba(223, 223, 223, 0.5);
     top:-30px;
 }
 .comment-list-back{
-    //background-color: #f4a720;padding:0 10px;
-    border-left: 2px solid rgba(66, 191, 46, 0.66);margin-left: 55px;line-height: 25px;color: #4c4d4e;
+    //background-color: #f4a720;
+    border-left: 1px solid rgba(66, 191, 46, 0.66);margin-left: 55px;line-height: 25px;color: #717273;
     margin-top: 5px;
+}
+.back-list{
+    background-color: rgba(129, 207, 142, 0.05);padding: 0 10px;
 }
 .back-list a{
     color: #40b22d;font-size: 10px;font-weight: 500;
@@ -224,11 +241,12 @@ li{
     font-family: 微软雅黑;color: rgba(76, 77, 78, 0.91);font-size: 14px;
 }
 .back-list-time{
-    font-size: 10px !important;color: rgba(76, 77, 78, 0.91) !important;
+    font-size: 5px !important;color: rgba(76, 77, 78, 0.6) !important;
+
 }
 .no-comment{
-    background-color: #eff7eb;margin: 5px 20px;text-align: center;color: #8f9889;
-    height: 50px;line-height: 50px;display: none;
+    //background-color: #eff7eb;text-align: center;color: #838a7e;font-size: 14px;
+    height: 50px;line-height: 50px;display: none;border-top: 1px solid rgba(190, 190, 190, 0.4);
 }
 .comment-people{
     background-color: #50c94b;color: white;line-height: 16px;padding: 0 2px;
@@ -237,23 +255,23 @@ li{
     font-size: 10px;color: rgba(28, 29, 30, 0.5);
 }
 .comment-page{
-    height: 35px;margin: 5px 20px ;//background-color: #f4a720;
+    height: 35px;margin: 20px 0;
 }
 .page-pre,.page-next,.page-count{
-    width: 60px ;height: 100%;background-color: #fafafc;outline: none;border: none;float: left;
-    font-family: "Agency FB";color: #3e453c;
+    width: 60px ;height: 100%;background-color: #ffffff;outline: none;border: 1px solid rgba(57, 139, 68, 0.6);
+    float: left;font-family: "Agency FB";color: rgba(57, 139, 68, 0.8);font-size: 14px;
 }
 .page-count{
     font-family: Arial;
 }
 .page-pre:hover,.page-next:hover,.page-count:hover{
-    background-color: rgba(110, 125, 133, 0.57);color: white;
+    background-color: rgba(57, 139, 68, 0.8);color: white;border: none;
 }
 .page-num{
-    width: 520px;background-color: #fafafc;height: 100%;float: left;display: flex;justify-content: center;
+    width: 620px;height: 100%;float: left;display: flex;justify-content: center;
 }
 .page-count{
-    width: 31px;height:31px;margin: 2px 5px;border-radius: 50%;border: 1px solid rgba(0, 0, 0, 0.33);
+    width: 31px;height:31px;margin: 2px 5px;
 }
 button{
     cursor: pointer;
@@ -262,5 +280,6 @@ button{
     height: 200px;background-color: #2d333c;margin-top: -10px;
 }
 .reply-comment{
-    font-size: 12px !important;color: white !important;font-weight: 500 !important;
+    font-size: 10px !important;color: white !important;font-weight: 500 !important;
+
 }
