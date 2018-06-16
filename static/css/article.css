@@ -218,13 +218,13 @@ li{
     margin-top: 5px;
 }
 .back-list a{
-    color: #40b22d;font-size: 14px;font-weight: bold;
+    color: #40b22d;font-size: 10px;font-weight: 500;
 }
 .back-list span{
     font-family: 微软雅黑;color: rgba(76, 77, 78, 0.91);font-size: 14px;
 }
-.back-list span:last-child{
-    font-size: 12px;color: rgba(76, 77, 78, 0.91);
+.back-list-time{
+    font-size: 10px !important;color: rgba(76, 77, 78, 0.91) !important;
 }
 .no-comment{
     background-color: #eff7eb;margin: 5px 20px;text-align: center;color: #8f9889;

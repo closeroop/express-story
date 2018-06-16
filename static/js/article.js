@@ -113,6 +113,10 @@ $(function () {
    });      //上传评论---------------------------
 
   $.post('/comment/download',{art_id:art_id},function (datas) {        //初始展示的评论--------------------
+      if(datas==='data err'){
+          $(".no-comment").show().text("哎呀 出现错误了");
+          return 0;
+      }
       console.log(datas);
       if(!datas.data.length){
           $(".no-comment").show();
@@ -149,6 +153,15 @@ $(function () {
                                                                           
                 </div>
              </div>`);
+          for(let reply of data.comment_comment){    //有回复就加进去     翻页亦如是
+                let standardTime=getTime(new Date(reply.comment_time*1));
+                let replyNode=$(`<div class="back-list">
+                                           <a href="javascript:">${reply.comment_user} </a>:<a href="javascript:"> @${reply.commented_user} :</a>
+                                            <span>${reply.content}</span><br>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                        </div>`);
+                node.find(".comment-list-back").append(replyNode);
+          }
           if(animateNo%2===0){
               node.css("animation","comment-animate-left 2s ease");
           }
@@ -263,11 +276,12 @@ $(function () {
 
             },
             success:function (data) {
-                if(data==='ok'){
+                data=JSON.parse(data);
+                if(data.msg==='insert success'){
                     let commentNode=$(`<div class="back-list">
                                            <a href="javascript:">${comment_user} </a>:<a href="javascript:"> @${commented_user} :</a>
                                             <span>${content}</span><br>
-                                            <span>${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
                                         </div>`);
                     $this.parents().filter(".comment-list-back").append(commentNode);
 
@@ -312,7 +326,8 @@ $(function () {
                 },
                 success: function (datas) {
                     replaceNode(datas);       //>>------------------------------------分页函数
-                    console.log("评论:"+datas);
+                    console.log("评论:");
+                    console.log(datas);
                 },
                 complete: function () {
                     $(".page-pre,.page-next").removeAttr("disabled");
@@ -343,13 +358,18 @@ $(function () {
                              </div>
                          </div>
                         <div class="comment-list-back" >   
-                              <div class="back-list" style="display:none">
-                                    <a href="javascript:">Yx </a>:<a href="javascript:"> @Yw </a>
-                                    <span> 这是后期工作了</span><br>
-                                    <span>2018-2-33</span>
-                             </div> 
+                              
                         </div>
                      </div>`);
+                for(let reply of data.comment_comment){
+                    let standardTime=getTime(new Date(reply.comment_time*1));
+                    let replyNode=$(`<div class="back-list">
+                                           <a href="javascript:">${reply.comment_user} </a>:<a href="javascript:"> @${reply.commented_user} :</a>
+                                            <span>${reply.content}</span><br>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                        </div>`);
+                    node.find(".comment-list-back").append(replyNode);
+                }
                 if(animateNo%2===0){
                     node.css("animation","comment-animate-left 2s ease");
                 }
@@ -382,4 +402,4 @@ $(function () {
                             <a href="javascript:">取消</a>
                        </div>
                    </div>`;    //m-m
-     let abbd;
+        let abbd;
