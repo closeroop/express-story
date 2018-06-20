@@ -148,9 +148,16 @@ $(function () {
         })
     });
     /*............................加载更多文章..............end.................................*/
-    window.onunload =function () {
-        window.localStorage.removeItem("page");
-    }
+
+    /*........................................保持状态.......start...................*/
+    /*let su=$(".my-art");
+    window.history.pushState({"html":su.html()},"", window.location.href);
+    window.onpopstate = function(event){
+        if(event.state){
+            su.innerHTML = event.state.html;
+        }
+    };*/
+    /*........................................保持状态.......end...................*/
 });
 
 function getTime(time) {

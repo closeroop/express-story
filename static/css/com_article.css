@@ -17,12 +17,16 @@
 .article{
     width: 650px;
     //border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    //box-shadow: 0 1px 1px 2px rgba(128, 128, 128, 0.4);
+    box-shadow: 0 5px 10px 0px rgba(128, 128, 128, 0.4);
     margin-top: 10px;
     background-color: white;
     padding: 10px;
     //border-radius: 5px;
-    position: relative;
+    position: relative;transition: all .3s ease-out;
+}
+.article:hover{
+    transform:scale(1.0) translateX(-30px);
+    transition: all .3s ease-out;
 }
 .art_header{
     height: 40px;
@@ -45,8 +49,8 @@
     padding: 14px 0; color: rgba(51, 51, 51, 0.86);font-size: 14px;font-family: Arial;
 }
 .art_footer{
-    height: 30px;
-   // background-color: rgba(0, 75, 63, 0.7);
+    height: 30px;padding-left: 32px;
+   //background-color: rgba(0, 75, 63, 0.7);
 }
 .user_tou{
     height: 34px ;width: 34px;
@@ -76,7 +80,7 @@
 
 }
 .art_header h3 a{
-    //max-width:450px;//min-width:200px;//display: block;color: rgb(89, 89, 89);
+    //max-width:450px;//min-width:200px;//display: block;color: rgb(62, 62, 62);
     //background: linear-gradient(45deg, rgb(108, 92, 231) 20%, rgb(10, 189, 227));
     position: relative;padding: 0 5px;
 
@@ -98,7 +102,7 @@
 }
 .art_info_pic{
     float: right;height: 130px;width: 160px;display: block;margin: 0 0 0 10px;border-radius: 5px;
-
+    border:1px solid rgba(187, 255, 79, 0.2);
 }
 .art_info_pic img{
 
@@ -107,12 +111,12 @@
     margin-left: 32px;
 }
 .art_foo_i{
-    height: 100%;width: 15%;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
-    font-size: 14px;color: #707070;
+    height: 100%;width: 60px;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
+    font-size: 12px;color: #707070;
 }
 .art_foo_i span{
     font-size: 10px;padding-left: 5px;
 }
 .art_footer{
-    background-color: rgba(171, 180, 164, 0.07);
+    //background-color: rgba(171, 180, 164, 0.07);
 }

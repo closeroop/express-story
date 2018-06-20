@@ -40,7 +40,7 @@
                     <% for(let i in artData){ %>
                     <div class="my-art">
                         <div class="art-intro">
-                            <h3><a href="/art/<%= artData[i].art_id %>" target="_blank"><%= artData[i].art_head %></a></h3>
+                            <h3><a href="/art/<%= artData[i].art_id %>"><%= artData[i].art_head %></a></h3>
                             <% if(artData[i].pic){ %>
                             <a href="/art/<%=artData[i].art_id %>" class="art-pic" style="background: url(<%-artData[i].pic%>) center/cover no-repeat"  target="_blank">
                                 </a>

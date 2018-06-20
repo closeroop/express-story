@@ -98,4 +98,6 @@ $(function () {
             $(".register-line").fadeIn().text(result);    //反馈查询信息
         });
     });
+
+    $(".welcome").slideDown(1000);
 });

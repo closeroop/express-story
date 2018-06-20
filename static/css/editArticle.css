@@ -3,12 +3,12 @@ html,body{
 }
 body{
     padding: 0;//overflow-x: hidden;overflow-y: hidden;
-    margin: 0;background: url("../pic/424827.jpg") center/cover;
+    margin: 0;background: url("../pic/timg3.jpg") center/cover;
 }
 #nav_top{
     height: 50px;
     position: fixed;width: 100%;
-    top:0;z-index: 999;
+    top:0;z-index: 999;opacity: .98;
 }
 #home{
     height: 90%;width: 80%;min-width: 1100px;min-height: 700px;

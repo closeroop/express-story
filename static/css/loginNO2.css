@@ -1,4 +1,3 @@
-
 *{
     padding: 0;
     margin: 0;
@@ -10,13 +9,13 @@
 }
 body,html{
     height: 100%;
-    background: url("../pic/login-3.jpg")  no-repeat,#fef9db;//min-width: 1000px;
+    background: url("../pic/timg2.jpg")  no-repeat,#fef9db;//min-width: 1000px;
     background-size: cover;
     //animation: background-animate 5s infinite  alternate;
 }
 #header{
-    height: 50px;//border-bottom: 1px solid #004b3f;
-    transition: all 2s ease-out;
+    height: 50px;
+    transition: all 2s ease-out;background-color: rgba(255, 255, 255, 0.3);
 }
 
 #header #h_left{
@@ -28,18 +27,19 @@ a{
 }
 #header #h_left a{
     //background-color: #463f46;display: block;
-    color: rgba(102, 169, 102, 0.76);font-size:28px;font-weight:600 ;
+    color: rgb(61, 185, 106);font-size:28px;font-weight:600 ;
     line-height: 50px;padding-left: 10px;letter-spacing: 2px;
+    text-shadow: 0 0 1px  white;
 }
 #header #h_right{
     float: right;
 }
 #header #h_right a{
     display: block;line-height: 50px;font-size: 14px;
-    float: left;color: rgba(46, 108, 117, 0.86);padding: 0 12px;font-family: "Agency FB";
+    float: left;color: #4f4f4f;padding: 0 12px;font-family: 微软雅黑;
 }
 #header #h_right a:hover{
-    background-color: rgba(240, 108, 83, 0.86);color: #fbffff;
+    background-color: rgba(32, 174, 144, 0.86);color: #fbffff;
     transition: all .3s ease-out;
 }
 #center{
@@ -58,21 +58,29 @@ a{
 }
 #user-up{
     //background-color: #f4a720;margin:0 auto;
-    width:850px ;height:500px;//border: 1px solid  #c7b4cc;
+    width:725px ;height:500px;//border: 1px solid  #c7b4cc;
     position: relative;
     //box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.02);
     //animation: shadow 2s infinite alternate;
 }
-
+@keyframes log-left {
+    from { transform: translate(375px)}
+    to { transform: translate(0px)}
+}
+@keyframes log-right {
+    from { transform: translate(-350px)}
+    to { transform: translate(0px)}
+}
 #user-up img{
-    float: left;display: block;height: 500px;//filter: blur(2px);
-    //opacity:0.96;
+    float: left;display: block;height: 500px;//filter: blur(2px);width: 375px;
+    animation: log-left 1s;
 }
 #log{
+    animation: log-right 1s;
     background-color: rgb(255, 255, 255);
     height: 500px;
     width:350px;padding-top:80px;
-    float: right;box-sizing: border-box;//border: 1px solid  #c7b4cc;
+    float:left;box-sizing: border-box;//border: 1px solid  #c7b4cc;
     position: relative;//display: none;
 }
 #register{
@@ -113,7 +121,7 @@ a{
      display: block;
      height: 0;width: 2px;background: linear-gradient(45deg, rgba(224, 86, 253, 0.73) 25%, rgba(190, 46, 221, 0.72));
      position: absolute;
-     bottom: 0;right: -3px;
+     bottom: 0;right: -2px;
      transform-origin: 0 100%;animation: xianY 3s  linear infinite alternate;
  }
 #user-up:before{
@@ -121,20 +129,20 @@ a{
     display: block;
     height:2px;width: 350px;background: linear-gradient(45deg, rgba(162, 155, 254, 0.7) 25%, rgba(108, 92, 231, 0.7));
     position: absolute;
-    bottom: -2px;right: -3px;
+    bottom: -2px;right: -2px;
     transform-origin: 100% 0;animation: xianX 3s linear infinite alternate;
 }
 #log h1,#register h1{
-    color: #c7b4cc;text-align: center;
+    color: #2ca68f;text-align: center;
     margin-bottom: 30px;padding-top: 10px;
 }
 #register h1{
-    color: #df9d2d;//color: rgba(255, 7, 9, 0.46);
+    color: #179ab9;//color: rgba(255, 7, 9, 0.46);
 }
 .log-form {
     width: 300px;height: 40px;outline: none;display: block;
     font-size: 16px;font-family: 微软雅黑;
-    border:none; border-bottom: 2px solid rgba(135, 158, 174, 0.77);margin: 15px auto;
+    border:none; border-bottom: 2px solid rgba(135, 158, 174, 0.77);margin: 20px auto;
     background-color: rgba(0, 0, 0, 0);color: rgb(70, 70, 71);
     padding-left: 10px;
 }
@@ -148,28 +156,29 @@ a{
 .line,.register-line{
     height: 25px;//border: 1px solid orange;width: 80%;margin-left: 10%;margin-top: 20px;
     font-size: 14px;color: #fefffd;text-align: center;line-height: 25px;border-radius: 12px;
-    display: none;background-color: #f4a720;
+    display: none;background-color: #c7d8df;
 }
 .register-line{
     font-size: 12px;;background-color: #11b615;
 }
 .log-form:focus {
-    border-bottom: 2px solid #f0932b;
+    border-bottom: 2px solid #57bf95;
     transition: all .5s ease-out;
 }
 .login,.register{
     height: 40px;width: 280px;margin: 30px auto 0;display: block;
-    background-color: #0983de;border: none;cursor: pointer;outline: none;
+    background-color: #23909d;border: none;cursor: pointer;outline: none;
     font-weight: 600;font-size: 18px;color: white;border-radius:5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 }
 .register{
     background-color: #e60706;
 }
 .register:hover{
-    background-color: #c70706;
+    background-color: #d90706;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 }
 .login:hover{
-    background-color: #0973cc;
+    background-color: #217683;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
 }
 #register a{
     font-size: 14px;font-family: 微软雅黑;color: #004b3f;margin-right: 35px;
@@ -183,9 +192,10 @@ a{
     margin: 0 auto;text-align: center;
     height: 40px;width: 250px;background-color: rgba(255, 55, 56, 0.74);line-height: 40px;
     font-weight: 600;font-size: 18px;color: white;border-radius:5px;
+    box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.4);
 }
 #log a:hover{
-    background-color: rgba(255, 55, 56, 0.83);
+    background-color: rgba(255, 55, 56, 0.83); box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 .reg_account{
 
@@ -200,8 +210,8 @@ a{
     position: relative;width: 100%;
 }
 .welcome{
-    width: 100%;margin: 20px auto;font-size: 80px;color: rgba(255, 189, 111, 0.4);
-    text-align: center;//background-color: #f4a720;font-family: "Agency FB";
+    width: 100%;margin: 20px auto;font-size: 80px;color: rgba(10, 178, 211, 0.3);
+    text-align: center;display: none;font-family: "Agency FB";
 }
 .welcome span{
     //width: 850px;display: block;

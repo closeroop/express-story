@@ -216,28 +216,31 @@ $(function () {
         $('.user-img').attr('src',`../${result[0].head}`);
     });
     /*........................................文章作者头像..........................*/
+
     /*........................................回复的回复........start..................*/
     let whoComment;  //玩家对玩家 还是玩家对电脑？<-----p2p- or -p2a---->    玩家相互留言 or 玩家对作者留言
     $(".comment-list").on('click','.reply',function () {
         //回复框站位
        let replyholder= $(this).parents().filter(".comment-list-info-1").find(".comment-people").text().trim();
-        let replyNode=`<div class="user-comment">
+        let replyNode=$(`<div class="user-comment" style="display:none">
                        <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
                        <div class="user-comment-up">
                             <div class=" user-me-up" >发送</div>
                             <a href="javascript:">取消</a>
                        </div>
-                   </div>`;
+                   </div>`);
         /* $(this).parents().filter('.comment-list-info').next().show();*/
         $(this).parents().filter(".comment-list-info").next().append(replyNode);
-        $(this).hide();
-        $(this).parents().filter(".comment-list-info").next().find(".reply-comment").hide();
+        replyNode.fadeIn(700);
+        $(this).fadeOut();
+        $(this).parents().filter(".comment-list-info").next().find(".reply-comment").fadeOut();
         whoComment='p2a';
     });
     $(".comment-list").on('click','.user-comment-up a',function () {
-        $(this).parents().filter(".comment-list-back").prev().find('.reply').show();
-        $(this).parents().filter(".comment-list-back").find(".reply-comment").show();
-        $(this).parents().filter(".user-comment").remove();
+        $(this).parents().filter(".comment-list-back").prev().find('.reply').fadeIn();
+        $(this).parents().filter(".comment-list-back").find(".reply-comment").fadeIn();
+        $(this).parents().filter(".user-comment").slideUp(500).remove();
+        //$(this).parents().filter(".user-comment").remove();
     });
     $(".comment-list").on('click','.user-me-up',function () {
         let art_id=$(".time").text();
@@ -288,8 +291,8 @@ $(function () {
                 }
             },
             complete:function () {
-                $this.parents().filter(".comment-list-back").prev().find('.reply').show();
-                $this.parents().filter(".comment-list-back").find(".reply-comment").show();
+                $this.parents().filter(".comment-list-back").prev().find('.reply').fadeIn();
+                $this.parents().filter(".comment-list-back").find(".reply-comment").fadeIn();
                 $this.parents().filter(".user-comment").remove();
             }
         })
@@ -297,21 +300,32 @@ $(function () {
 
     $(".comment-list").on('click','.reply-comment',function () {  //回复其他人
         let replyholder= $(this).siblings(":first").text().trim();// @的人
-        let replyNode=`<div class="user-comment">
+        let replyNode=$(`<div class="user-comment" style="display: none">
                        <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
                        <div class="user-comment-up">
                             <div class=" user-me-up" >发送</div>
                             <a href="javascript:">取消</a>
                        </div>
-                   </div>`;
+                   </div>`);
          $(this).parents().filter(".comment-list-back").append(replyNode);
-         $(this).hide();
-         $(this).parent().siblings().find(".reply-comment").hide();
-         $(this).parents().filter(".comment-list-back").prev().find('.reply').hide();
+         replyNode.fadeIn();
+         $(this).fadeOut();
+         $(this).parent().siblings().find(".reply-comment").fadeOut();
+         $(this).parents().filter(".comment-list-back").prev().find('.reply').fadeOut();
          whoComment='p2p';
     });
 
     /*........................................回复的回复.......end...................*/
+
+    /*........................................保持状态.......start...................*/
+    /*let su=$(".comment-list-custom");
+    window.history.pushState({"html":su.html()},"", window.location.href);
+    window.onpopstate = function(event){
+        if(event.state){
+            su.innerHTML = event.state.html;
+        }
+    };*/
+    /*........................................保持状态.......end...................*/
 });
 
  /*---------------------------------------------几个全局方法------------------------------------*/
