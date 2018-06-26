@@ -18,6 +18,7 @@
     "moment": "^2.22.1",
     "multiparty": "^4.1.4",
     "mysql": "^2.15.0",
+    "serve-favicon": "^2.5.0",
     "wangeditor": "^3.1.1"
   }
 }
