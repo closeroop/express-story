@@ -12,15 +12,15 @@ router.get('/:u_id',(req,res,next)=>{
     let u_id=req.params.u_id ;
     let user=req.session.u_id;                  //未登录是undefined  登录是用户ID
     let user_head=req.session.head;     //用户头像
-    let sql=`SELECT u_id,head FROM user_bass WHERE u_id='${u_id}'`;   //获取用户ID 和 用户头像地址
+    let sql=`SELECT * FROM user_bass WHERE u_id='${u_id}'`;   //获取用户ID 和 用户头像地址
     let finduser=new Promise((resolve, reject) => {
         db.query(sql,(err,data)=>{
                 if(err){
                     reject('err');
                 }
                 else {
-                    console.log('master：');
-                    console.log(data[0]);
+                    //console.log('master：');
+                   // console.log(data[0]);
                     resolve(data[0]);
                 }
            })
@@ -64,6 +64,7 @@ router.get('/:u_id',(req,res,next)=>{
                 }*/
            let findDate=data.u_id;
            let masterhead=data.head;
+           let masterinfo=data;
         let sql=`SELECT * FROM artcle_table WHERE u_id='${findDate}'  ORDER BY art_id  DESC  LIMIT 0,4`;
             db.query(sql, (err, data) => {
                 if (err) {
@@ -88,7 +89,7 @@ router.get('/:u_id',(req,res,next)=>{
                                 }
                                 data[index].showart = result[index].replace(/<.*?>/g,'').replace(/\&nbsp;/g,'');
                             });
-                            res.render('person',{user:user,master:u_id,artData:data,masterhead:masterhead,user_head:user_head});       //逻辑是：如果登录ID（当然没登是null）与访问ID不同就进入访客模式。相同就是访自己
+                            res.render('person',{user:user,master:u_id,artData:data,masterinfo:masterinfo,user_head:user_head});       //逻辑是：如果登录ID（当然没登是null）与访问ID不同就进入访客模式。相同就是访自己
                             //console.log(data);                                                                   //传过去了登录用户ID，被访问者ID，被访问者的文章内容，被访问者头像地址
                         }
                     ).catch(()=>{

@@ -13,14 +13,14 @@
      <div class="show-me">
          <div class="show-bgd"></div>
          <div class="show-pic">
-             <% if( masterhead !== null ) {%>
-             <img src="../<%=masterhead%>" alt="uu">
+             <% if( masterinfo.head !== null ) {%>
+             <img src="../<%=masterinfo.head%>" alt="uu">
              <% }else{%>
              <img src="./pic//user_tou/tou-3.jpg" alt="uu">
              <%}%>
          </div>
          <div class="love-me">
-             <h2 class="master"><%= master %></h2>
+             <h2 class="master"><%=masterinfo.minname%></h2>
              <% if( user !== master ) {%>
                <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
              <% }%>
@@ -75,8 +75,21 @@
 
          </div>
          <div class="art-me-like">
-                两岸猿声啼不住<br>
-                轻舟已过万重山
+             <img src="pic/p-2.jpg" alt="">
+             <table class="me-table" >
+                 <tr>
+                     <td>昵称</td>
+                     <td><%=masterinfo.minname%></td>
+                 </tr>
+                 <tr>
+                     <td>生日</td>
+                     <td><%=masterinfo.birth%></td>
+                 </tr>
+                 <tr>
+                     <td>个性签名</td>
+                     <td><%=masterinfo.intro%></td>
+                 </tr>
+             </table>
          </div>
      </div>
 </body>

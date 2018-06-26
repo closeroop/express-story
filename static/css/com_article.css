@@ -1,7 +1,7 @@
 #show_art{
-    width: 800px;
-    margin-left: 15%;
-    //background-color: #01abae;
+    width:690px;
+    //margin-left: 15%;
+    float: left;
 }
 @keyframes article-animate-left {
     0%  { left:20px }
@@ -17,30 +17,30 @@
 .article{
     width: 650px;
     //border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    box-shadow: 0 5px 10px 0px rgba(128, 128, 128, 0.4);
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     background-color: white;
-    padding: 10px;
+    padding:5px 10px;
     //border-radius: 5px;
     position: relative;transition: all .3s ease-out;
 }
-.article:hover{
+/*.article:hover{
     transform:scale(1.0) translateX(-30px);
     transition: all .3s ease-out;
-}
+}*/
 .art_header{
     height: 40px;
     //background-color: rgb(239, 239, 234);
     border-radius: 5px;overflow: hidden;
 }
-.art_header:after{
+.art_header:after,.art_info:after{
     content: ' ';
     display: block;
     clear: both;
 }
 .art_info{
-    height: 130px;line-height: 22px;
-    padding: 10px 0 10px 10px;
+    //height: 130px;line-height: 22px;
+    padding: 10px 0 5px 10px;
     word-wrap:break-word;word-break:break-all;letter-spacing: 2px;
 
     //text-indent:32px;/*设置段前间距2个字  不好  后面图片会位移*/
@@ -71,7 +71,7 @@
     padding-left: 5px;
 }
 .art_header h3{
-    float:right;text-align: center;
+    float:right;text-align: center;font-weight: 500;
     /*background: linear-gradient(-45deg, rgba(128, 128, 128, 0.7) 25%, rgba(210, 210, 210, 0.7) 0, rgba(210, 210, 210, 0.7) 50%,
                                         rgba(128, 128, 128, 0.7) 0,rgba(128, 128, 128, 0.7) 75%,rgba(210, 210, 210, 0.7) 0);*/
 }
@@ -80,9 +80,9 @@
 
 }
 .art_header h3 a{
-    //max-width:450px;//min-width:200px;//display: block;color: rgb(62, 62, 62);
+    //max-width:450px;//min-width:200px;//display: block;color: rgb(82, 82, 82);
     //background: linear-gradient(45deg, rgb(108, 92, 231) 20%, rgb(10, 189, 227));
-    position: relative;padding: 0 5px;
+    position: relative;padding: 0 5px;font-weight: 500;
 
 }
 .art_header h3 a:hover{
@@ -111,7 +111,7 @@
     margin-left: 32px;
 }
 .art_foo_i{
-    height: 100%;width: 60px;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
+    height: 100%;min-width: 60px;float:left;line-height: 30px;margin: 0 10px;//text-align: center;
     font-size: 12px;color: #707070;
 }
 .art_foo_i span{

@@ -94,12 +94,14 @@ $(function () {
                                      <div class="comment-list-info-1">
                                          <span class="comment-people">${u_id}</span><br>
                                          <span class="comment-time">${newCommentTime}</span>
-                                         <a href="javascript:" class="reply">回复 TA</a>
+                                         <a href="javascript:" class="reply">回复</a>
                                      </div>
                                      <div class="comment-list-info-2">
                                         ${upContent}
                                      </div>
-                                 </div>          
+                                 </div> 
+                                <div class="comment-list-back" >                                                                       
+                                 </div>         
                             </div>`);
               $('.comment-list-head').after(newNode);
               $(".comment-list-head span").text(`${ commentCount +1 }条评论`);
@@ -143,14 +145,13 @@ $(function () {
                          <span class="comment-people">${data.u_id}</span><br>
                          <span class="comment-time">${commentTime}</span>
                          <span style="display: none" class="origin-comment-time">${data.comment_time}</span>
-                         <a href="javascript:" class="reply">回复 TA</a>
+                         <a href="javascript:" class="reply">回复</a>
                      </div>
                      <div class="comment-list-info-2">
                         ${data.comment_content}
                      </div>
                  </div>
-                <div class="comment-list-back" >                    
-                                                                          
+                <div class="comment-list-back" >                                                                       
                 </div>
              </div>`);
           for(let reply of data.comment_comment){    //有回复就加进去     翻页亦如是
@@ -158,7 +159,7 @@ $(function () {
                 let replyNode=$(`<div class="back-list">
                                            <a href="javascript:">${reply.comment_user} </a>:<a href="javascript:"> @${reply.commented_user} :</a>
                                             <span>${reply.content}</span><br>
-                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复</a>
                                         </div>`);
                 node.find(".comment-list-back").append(replyNode);
           }
@@ -213,7 +214,7 @@ $(function () {
             return 0;
         }
         //console.log(result);
-        $('.user-img').attr('src',`../${result[0].head}`);
+        $('.user-img').attr('src',`../${result[0].head}`);1
     });
     /*........................................文章作者头像..........................*/
 
@@ -284,7 +285,7 @@ $(function () {
                     let commentNode=$(`<div class="back-list">
                                            <a href="javascript:">${comment_user} </a>:<a href="javascript:"> @${commented_user} :</a>
                                             <span>${content}</span><br>
-                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复</a>
                                         </div>`);
                     $this.parents().filter(".comment-list-back").append(commentNode);
 
@@ -365,7 +366,7 @@ $(function () {
                                  <span class="comment-people">${data.u_id}</span><br>
                                  <span class="comment-time">${commentTime}</span>
                                  <span style="display: none" class="origin-comment-time">${data.comment_time}</span>
-                                 <a href="javascript:" class="reply">回复 TA</a>
+                                 <a href="javascript:" class="reply">回复</a>
                              </div>
                              <div class="comment-list-info-2">
                                 ${data.comment_content}
@@ -380,7 +381,7 @@ $(function () {
                     let replyNode=$(`<div class="back-list">
                                            <a href="javascript:">${reply.comment_user} </a>:<a href="javascript:"> @${reply.commented_user} :</a>
                                             <span>${reply.content}</span><br>
-                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复 TA</a>
+                                            <span class="back-list-time">${standardTime}</span><a href="javascript:" class="reply-comment">回复</a>
                                         </div>`);
                     node.find(".comment-list-back").append(replyNode);
                 }

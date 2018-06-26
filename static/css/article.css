@@ -63,7 +63,7 @@ a{
 .article{
     padding: 10px 0;color: rgba(47, 47, 47, 0.96);
     font-weight: 400;font-size: 16px;
-    line-height: 1.7;letter-spacing: 1px;font-family: Arial;
+    line-height: 1.7;letter-spacing: 1px;font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
 }
 .navigation{
     position: fixed;right: 20px;bottom:40px ;width: 50px;border: 1px solid rgba(128, 128, 128, 0.46);
@@ -212,10 +212,12 @@ li{
     color: white;height: 60px;
 }
 .comment-list-info-1 a,.reply-comment{
-    color: white ;margin: 0 10px;background-color: rgba(24, 27, 255, 0.29);padding:0 5px ;
+    background: url("../pic/reply.png") 30% 60%/cover no-repeat;
+    background-size: 16px;padding: 0 0 0 32px; color: #7e7e7e;
 }
 .comment-list-info-1 a:hover,.reply-comment:hover{
-    background-color: rgba(24, 27, 255, 0.8);
+    background: url("../pic/replyl.png") 30% 50%/cover no-repeat;background-size: 16px;
+    color: #393939 !important;
 }
 .comment-list-info-2{
     clear: both;margin: 10px 10px 0 50px;font-family:微软雅黑;color: #6c6a6c;
@@ -235,16 +237,17 @@ li{
     margin-top: 5px;
 }
 .back-list{
-    background-color: rgba(129, 207, 142, 0.05);padding: 0 10px;
+    //background-color: rgba(129, 207, 142, 0.05);margin: 0 10px;
+    border-bottom: 1px solid #f2f2f2;
 }
 .back-list a{
-    color: #40b22d;font-size: 12px;font-weight: 500;
+    color: #3194d0;font-size: 14px;font-weight: 500;
 }
 .back-list span{
-    font-family: 微软雅黑;color: rgba(76, 77, 78, 0.91);font-size: 14px;
+    font-family: 微软雅黑;color: rgba(76, 77, 78, 1);font-size: 14px;
 }
 .back-list-time{
-    font-size: 5px !important;color: rgba(76, 77, 78, 0.6) !important;
+    font-size: 12px !important;color: rgba(76, 77, 78, 0.6) !important;
 
 }
 .no-comment{
@@ -252,7 +255,7 @@ li{
     height: 50px;line-height: 50px;display: none;border-top: 1px solid rgba(190, 190, 190, 0.4);
 }
 .comment-people{
-    background-color: #50c94b;color: white;line-height: 16px;padding: 0 2px;
+    background-color: rgba(255, 124, 35, 0.49);color: white;line-height: 16px;padding: 0 2px;
 }
 .comment-time{
     font-size: 12px;color: rgba(28, 29, 30, 0.5);
@@ -283,6 +286,9 @@ button{
     height: 200px;background-color: #2d333c;margin-top: -10px;width: 100%;
 }
 .reply-comment{
-    font-size: 12px !important;color: white !important;font-weight: 500 !important;
+    font-size: 12px !important;color: #7e7e7e!important;font-weight: 500 !important;
+
+}
+.reply{
 
 }

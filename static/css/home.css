@@ -1,17 +1,35 @@
 *{
     margin: 0;padding: 0;
 }
+body{
+ //background-color: rgba(241, 242, 246, 0.48);
+     background: url("../pic/timg.jpg") center/cover fixed;
+ }
 #home_top{
     height: 50px;
     position: fixed;width: 100%;
     top:0;z-index: 999;
 }
 #home_mid {
-    max-width: 1440px; margin: 70px auto;
+    width: 1100px; margin: 70px auto;
 }
-body{
-    //background-color: rgba(241, 242, 246, 0.48);
-    background: url("../pic/timg.jpg") center/cover fixed;
+#home_mid:after{
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.good-show{
+    width: 380px;background-color: orangered;float: left;
+    margin-top: 10px;box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.good-art{
+    height:50px;background: url("../pic/p-4.jpg") center/cover no-repeat;transition: all .5s;
+}
+.good-art h3 a{
+    line-height: 50px;color: #f7f7f7;display: block;padding-left: 10px;text-shadow: 1px 1px 1px #8e8e8e;
+}
+.good-art:hover {
+    height: 200px;transition: all .5s;
 }
 .add-animate{
     width: 200px;height: 50px;background-color: rgba(0, 0, 0, 0.46);font-family: 微软雅黑;
