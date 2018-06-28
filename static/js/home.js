@@ -39,7 +39,7 @@ $(function () {
                                 <div class="art_footer"> 
                                     <div><a href="" class="art_foo_i">喜欢<span>${ data.art_like }</span></a></div>
                                     <div><a href="" class="art_foo_i">评论<span>${ data.art_laud }</span></a></div>
-                                    <div><a href="" class="art_foo_i">浏览量<span>999+</span></a></div>
+                                    <div><a href="" class="art_foo_i">浏览量<span>${ data.art_view }</span></a></div>
                                 </div>
                                 </div>`);
                     }
@@ -60,7 +60,7 @@ $(function () {
                                 <div class="art_footer"> 
                                 <div><a href="" class="art_foo_i">喜欢<span>${ data.art_like }</span></a></div>
                                 <div><a href="" class="art_foo_i">评论<span>${ data.art_laud }</span></a></div>
-                                    <div><a href="" class="art_foo_i">浏览量<span>999+</span></a></div>
+                                    <div><a href="javascript:" class="art_foo_i">浏览量<span>${ data.art_view }</span></a></div>
                                 </div>
                          </div>`);
                     }

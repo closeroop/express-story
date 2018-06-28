@@ -15,11 +15,13 @@
                <a href="/">回首页</a>
            </div>
            <div id="mascot">
-               <img src="./pic/user_tou/tou-4.jpg" alt="头像" title="没错 可爱的你">
+               <% if(!user_head){%>
+               <img src="./pic/user_tou/tou-3.jpg" alt="头像" title="没错 可爱的你">
+               <%}else {%>
+               <img src=".<%=user_head%>" alt="头像" title="没错 可爱的你">
+               <%}%>
                <div>
                    <ul id="my-list">
-                       <li>我</li>
-                       <li>天气 -- 晴</li>
                        <li>2018-5-12</li>
                    </ul>
                </div>

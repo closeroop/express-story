@@ -16,8 +16,19 @@
     <div class="author">
         <a href="/user/<%= info.u_id%>" ><img class="user-img" src="./pic/user_tou/tou-3.jpg" alt="图片"></a>
         <div class="author-info">
-            <a href="/user/<%= info.u_id%>" class="atr-master"><%= info.u_id%></a><a href="">+关注</a><br>
-            <span class="standard_time">time</span><span class="word">字数 </span><span>阅读 256</span>
+            <a href="/user/<%= info.u_id%>" class="atr-master"><%= info.u_id%></a>
+            <a href="javascript:" class="attention">
+                <% if(!user){%>
+                   关注
+                <%}else {%>
+                    <% if(followinfo){%>
+                        已关注
+                <% }else {%>
+                        关注
+                    <%}%>
+                <%}%>
+            </a><br>
+            <span class="standard_time">time</span><span class="word">字数 </span><span>阅读 <%=info.art_view%></span>
             <span>评论 <%=info.art_laud%></span><span>喜欢 <%=info.art_like%></span>
             <span class="time" style="display: none"><%=info.art_id%></span>
         </div>
@@ -35,6 +46,18 @@
 <div class="big-pic">
         <!--大图片展示-->
 </div>
+<div class="let-like">
+    <% if(!user){%>
+       喜欢
+    <%}else {%>
+        <% if(likeinfo){%>
+            已喜欢
+        <% }else {%>
+             喜欢
+       <%}%>
+    <%}%>
+</div>
+
 <div id="comment">
     <div class="comment-all">
         <div class="comment-text">

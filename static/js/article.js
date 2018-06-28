@@ -24,10 +24,13 @@ $(function () {
         let url=$(this).get(0).src;
         $('.big-pic').css('background-image',`url(${url})`).show();
     });
-   $(window).click(function (e) {                           //图片消失---------------------------
+   $(window).click(function () {                           //图片消失---------------------------
        $('.big-pic').hide();
+       $(".comment-word").css("border","1px solid rgba(191, 191, 191, 0.25)");
    });
-   $(".comment-word").click(function () {
+   $(".comment-word").click(function (e) {
+       e.stopPropagation();
+       $(this).css("border"," 1px solid rgba(46, 122, 30, 0.4)");
        $(".comment-text").animate({'padding-bottom':'10px'},500);
        $(".comment-up").fadeIn(500);
    });
@@ -224,7 +227,7 @@ $(function () {
         //回复框站位
        let replyholder= $(this).parents().filter(".comment-list-info-1").find(".comment-people").text().trim();
         let replyNode=$(`<div class="user-comment" style="display:none">
-                       <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
+                       <textarea placeholder="@${replyholder}" class="comment-word reply-word" ></textarea>  
                        <div class="user-comment-up">
                             <div class=" user-me-up" >发送</div>
                             <a href="javascript:">取消</a>
@@ -302,7 +305,7 @@ $(function () {
     $(".comment-list").on('click','.reply-comment',function () {  //回复其他人
         let replyholder= $(this).siblings(":first").text().trim();// @的人
         let replyNode=$(`<div class="user-comment" style="display: none">
-                       <textarea placeholder="@${replyholder}" class="comment-word reply-word"></textarea>  
+                       <textarea placeholder="@${replyholder}" class="comment-word reply-word" ></textarea>  
                        <div class="user-comment-up">
                             <div class=" user-me-up" >发送</div>
                             <a href="javascript:">取消</a>
@@ -327,6 +330,84 @@ $(function () {
         }
     };*/
     /*........................................保持状态.......end...................*/
+    /*........................................喜欢文章.......start...................*/
+    !function () {
+    let flag=1;
+    $(".let-like").click(function () {
+        if($(this).text().trim()==='已喜欢'){
+            flag=0;
+        }
+        let art_id=$(".time").text();
+        if(flag){
+            flag=0;
+            $.get('/attention/likeme',{art_id:art_id},(result)=> {
+                result=JSON.parse(result);
+                if(result.msg==='ok'){
+                    $(this).text('已喜欢');
+                    return 0;
+                }
+                if(result.msg==='no jurisdiction'){
+                    alert('请先登录');return 0;
+                }
+                alert('数据异常');
+            });
+        }else{
+            flag=1;
+            $.get('/attention/nolike',{art_id:art_id}, (result)=> {
+                result=JSON.parse(result);
+                if(result.msg==='ok'){
+                    $(this).text('喜欢');return 0;
+                }
+                if(result.msg==='no jurisdiction'){
+                    alert('请先登录');return 0;
+                }
+                alert('数据异常');
+            });
+        }
+
+    });
+}();
+    /*........................................喜欢文章.......end...................*/
+
+    /*........................................关注作者.......start...................*/
+    likeFollow(".attention","关注","/attention/follow","/attention/escfollow");
+    function likeFollow(node,text,path1,path2) {
+        let flag=1;
+        $(node).click(function () {
+            if($(this).text().trim()==='已'+text){
+                flag=0;
+            }
+            let followed_id=$(".atr-master").text();//被关注者
+            if(flag){
+                flag=0;
+                $.get(path1,{followed_id:followed_id},(result)=> {
+                    result=JSON.parse(result);
+                    if(result.msg==='ok'){
+                        $(this).text('已'+text);
+                        return 0;
+                    }
+                    if(result.msg==='no jurisdiction'){
+                        alert('请先登录');return 0;
+                    }
+                    alert('数据异常');
+                });
+            }else{
+                flag=1;
+                $.get(path2,{followed_id:followed_id}, (result)=> {
+                    result=JSON.parse(result);
+                    if(result.msg==='ok'){
+                        $(this).text(text);return 0;
+                    }
+                    if(result.msg==='no jurisdiction'){
+                        alert('请先登录');return 0;
+                    }
+                    alert('数据异常');
+                });
+            }
+        });
+    }
+    /*........................................关注作者.......end...................*/
+
 });
 
  /*---------------------------------------------几个全局方法------------------------------------*/
@@ -417,4 +498,4 @@ $(function () {
                             <a href="javascript:">取消</a>
                        </div>
                    </div>`;    //m-m
-        let abbd;
+

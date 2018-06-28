@@ -131,8 +131,8 @@ $(function () {
                             </p>                          
                         </div>
                         <div class="art-comment">
-                            <span class="write-time">${ time }</span><a href="">评论:0</a>
-                            <a href="">喜欢:0</a> <a href="">浏览量:0</a>
+                            <span class="write-time">${ time }</span><a href="javascript:">评论: ${ data.art_laud }</a>
+                            <a href="javascript:">喜欢 ${ data.art_like }</a> <a href="javascript:">浏览量 ${ data.art_view }</a>
                                ${edit}                                    
                         </div>
                     </div>`);

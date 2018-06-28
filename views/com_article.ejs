@@ -24,9 +24,9 @@
             <p><%=artData[i].showart.slice(0,100)%>......</p>
         </div>
         <div class="art_footer"> <!--第三部分  喜欢 评论 浏览量-->
-            <div><a href="" class="art_foo_i">喜欢<span><%= artData[i].art_like %></span></a></div>
-            <div><a href="" class="art_foo_i">评论<span><%= artData[i].art_laud %></span></a></div>
-            <div><a href="" class="art_foo_i">浏览量<span>0</span></a></div>
+            <div><a href="javascript:" class="art_foo_i">喜欢<span><%= artData[i].art_like %></span></a></div>
+            <div><a href="javascript:" class="art_foo_i">评论<span><%= artData[i].art_laud %></span></a></div>
+            <div><a href="javascript:" class="art_foo_i">浏览量<span><%= artData[i].art_view %></span></a></div>
         </div>
     </div>
   <% }%>

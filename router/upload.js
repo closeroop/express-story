@@ -62,7 +62,7 @@ router.post('/upArt',(req,res,next)=>{
         }
         else {
             console.log('The file has been saved!');
-            sql=`INSERT INTO artcle_table VALUES ('${req.session.u_id}','${artId}','${title}','.${address}',0,0)`;
+            sql=`INSERT INTO artcle_table VALUES ('${req.session.u_id}','${artId}','${title}','.${address}',0,0,0)`;
             db.query(sql,(err,data)=>{
                 if(err){
                     res.status(501).send(JSON.stringify({msg:'err data'}));

@@ -3,7 +3,8 @@
 }
 body{
  //background-color: rgba(241, 242, 246, 0.48);
-     background: url("../pic/timg.jpg") center/cover fixed;
+     background: url("../pic/timg.jpg") 100% 100%/cover fixed no-repeat;
+    background-size: 80%;
  }
 #home_top{
     height: 50px;

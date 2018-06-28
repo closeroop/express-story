@@ -1,7 +1,7 @@
 body{
     //background-color: rgb(253, 253, 253);
     background: url("../pic/timg.jpg") 100% 100%/cover fixed no-repeat;
-    background-size: 60%;
+    background-size: 40%;
 }
 #home_top{
     height: 50px;
@@ -287,8 +287,12 @@ button{
 }
 .reply-comment{
     font-size: 12px !important;color: #7e7e7e!important;font-weight: 500 !important;
-
 }
-.reply{
-
+.let-like{
+    width: 130px;height: 40px;font-size: 20px;background-color: #ff8959;color: white;
+    margin: 10px auto;text-align: center;line-height: 40px;border-radius: 20px;cursor: pointer;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.18);
+}
+.let-like:hover{
+    background-color: #f78755;box-shadow: none;
 }

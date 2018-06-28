@@ -26,42 +26,28 @@ router.get('/:u_id',(req,res,next)=>{
            })
         });                         //先看看路径合不合法，实际是看看用户是否存在
 
-    /*..........................................................................*/
-    /*finduser.then(function (data) {
-        if(data===undefined){
-               next();  //跳出当前路由  给404处理
-               return 0;
-        }
-        if(req.session.u_id!==u_id){
-            res.render('person',{visit:'访客模式',user:null});     //如果退出了就不要以主人访问个人主页了，而是以访客
-            return 0;
-        }
-        res.render('person',{visit:'',user:u_id});  //个人主页了
-    }).catch(function () {
-        res.send(222);
-    });*/
-    /*..........................................................................*/
     finduser.then(function (data) {             //拿到了上一步传下来的data
         return new Promise((resolve, reject) => {
             if(data===undefined){               //如果用户不存在  传404给下一步
                 resolve('404');
                 return 0;
             }
-           /* if(req.session.u_id!==u_id){     //用户存在的情况下，如果登录的用户id和访问该用户id不同，进入访客模式，向下传被访问者ID
-                resolve(u_id);
-                return 0;                      //注释部分别看了  但我还是留着1---------------
-            }*/
-            resolve(data);  //{ k:v }      //用户存在的情况下，继续传数据
+            let sql=`SELECT * FROM follow_table WHERE u_id='${user}' and follow_id='${u_id}'`; //关注信息
+            db.query(sql,(err,followinfo)=>{
+                if(err){
+                    reject('data err2');
+                    return 0;
+                }
+                data.followinfo=followinfo[0];
+                resolve(data);  //{ k:v }      //用户存在的情况下，继续传数据
+            });
+
         });
     }).then(function (data) {
            if(data==='404'){
                  next();                //跳出当前路由  给404处理
                  return 0;
              }
-           /* if(data!==user){         //如果登录的用户id和访问该用户id不同  访客模式
-                //u_id=null;                注释部分别看了  但我还是留着2------------
-                visit=u_id;          //如果 visit 有值 就是访客模式
-                }*/
            let findDate=data.u_id;
            let masterhead=data.head;
            let masterinfo=data;
@@ -97,7 +83,8 @@ router.get('/:u_id',(req,res,next)=>{
                     });
                 }
             });
-    }).catch(function () {
+    }).catch(function (err) {
+        console.log(err);
         console.log(233);
     });
 });

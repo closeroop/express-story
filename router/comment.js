@@ -16,12 +16,20 @@ router.post('/up',(req,res,next)=>{
         let commentTime=req.body.upTime;
         console.log(u_id,comment,art_id,commentTime);
         let sql=`INSERT into comment_table VALUES ('${art_id}','${u_id}','${comment}','${commentTime}',null)`;
+        let sql2=`UPDATE artcle_table set art_laud=(SELECT COUNT(comment_content) FROM comment_table WHERE 
+        comment_table.art_id='${art_id}') WHERE artcle_table.art_id='${art_id}' `;//评论成功之后关联评论数量
         db.query(sql,(err,data)=>{
             if(err){
                 res.status(501).send('上传异常');
                 return 0;
             }
+            db.query(sql2,(err,data)=>{
+                if(err){
+                    res.status(501).send('上传异常');
+                    return 0;
+                }
                 res.send({status:'ok',u_id:u_id});
+            });
         });
 });
 router.post('/download',(req,res)=>{

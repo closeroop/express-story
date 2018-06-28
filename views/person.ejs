@@ -20,9 +20,16 @@
              <%}%>
          </div>
          <div class="love-me">
-             <h2 class="master"><%=masterinfo.minname%></h2>
+             <h2 class="master"><%=masterinfo.u_id%></h2>
              <% if( user !== master ) {%>
-               <button class="kiss-me">+ 关注我</button><button class="talk-me">- 私信我</button>
+               <button class="kiss-me">
+                   <% if( !masterinfo.followinfo ) {%>
+                   + 关注我
+                   <%}else {%>
+                   已关注✔
+                   <%}%>
+               </button>
+             <button class="talk-me">- 私信我</button>
              <% }%>
          </div>
          <div class="show-word">
@@ -56,8 +63,8 @@
                             <% } %>
                         </div>
                         <div class="art-comment">
-                            <span class="write-time"><%= artData[i].art_id %></span><a href="">评论:0</a>
-                            <a href="">喜欢:0</a> <a href="">浏览量:0</a>
+                            <span class="write-time"><%= artData[i].art_id %></span><a href="javascript:">评论 <%= artData[i].art_laud %></a>
+                            <a href="javascript:">喜欢 <%= artData[i].art_like %></a> <a href="javascript:">浏览量 <%= artData[i].art_view %></a>
                             <% if( user === master ) {%>
                             <div class="art-edit">
                                 <a href="/edit/<%= artData[i].art_id %>  " target="_blank" class="edit-art">编辑</a>

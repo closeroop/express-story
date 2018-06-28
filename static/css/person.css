@@ -119,7 +119,7 @@ a{
 .my-art{
     background-color: #ffffff;width: 100%;padding: 15px;box-sizing: border-box;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);margin-bottom: 5px;
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.05);
 }
 .my-art:hover{
     box-shadow:inset 0 0 0 1px rgba(46, 139, 87, 0.53);
@@ -151,7 +151,7 @@ a{
 }
 .art-comment a{
     //color: rgb(16, 172, 132);font-size: 12px;font-family: 微软雅黑;line-height: 25px;margin-right: 10px;
-    color: #b8c2b1;
+    color: #a8b2a1;
 }
 .art-comment span{
     //color: rgb(16, 172, 132);font-size: 12px;font-family: Arial;margin: 0 15px 0 0;  line-height: 25px;
