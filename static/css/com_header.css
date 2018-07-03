@@ -45,10 +45,10 @@ li{
     padding-left: 15px;transition:all .5s ease-out;
 }
 .head_nav:last-child{
-    background-color:transparent ;
+    background-color:transparent;
 }
 #search{
-    color: #51564c;font-family: 微软雅黑;
+    color: #51564c;font-family: 微软雅黑;position: relative;
 }
 #search:focus{
     width: 228px;

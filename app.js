@@ -17,6 +17,7 @@
     const deleteart=require('./router/deleteart');
     const editart=require('./router/editart');
     const  attention=require("./router/attention");
+    const search=require("./router/search");
     const server=express();
     server.set('view engine','ejs') ; //输出什么东西
     server.set('views',path.join(__dirname, "views"));   //模板文件位置
@@ -81,6 +82,8 @@
     server.use('/edit',editart);    //修改文章   （编辑文章）
 
     server.use('/attention',attention);  //喜欢和关注
+
+    server.use('/search',search);   //搜索功能
 
     server.use(express.static('./'));
     server.use(express.static('./static'));

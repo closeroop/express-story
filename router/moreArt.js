@@ -46,16 +46,19 @@ router.post('/',(req,res)=>{
             res.status(500).send('Bad database');
         }
         else {
-            let promise1= readdata(data[0]);
+            /*let promise1= readdata(data[0]);
             let promise2= readdata(data[1]);
             let promise3= readdata(data[2]);
             let promise4= readdata(data[3]);
-            /*let promise5= readdata(data[4]);
+            let promise5= readdata(data[4]);
             let promise6= readdata(data[5]);
             let promise7= readdata(data[6]);
             let promise8= readdata(data[7]);*/    //以后加的数据
             let promiseLine=[];
-            promiseLine.push(...[promise1,promise2,promise3,promise4]);
+            let length=data.length;
+            for(let i=0;i<length;i++){
+                promiseLine.push(readdata(data[i]));  //承诺放到数组里
+            }
             Promise.all(promiseLine).then((result)=>{
                     data.forEach((item ,index)=>{
                         if(result[index].match(/src=".*?"/)){
