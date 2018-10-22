@@ -3,7 +3,7 @@
   
 ### 首页
 
-  ![首页](https://github.com/closeroop/express-story/blob/master/static/pic/indexme2.png)
+  <img src="https://github.com/closeroop/express-story/blob/master/static/pic/indexme2.png"  height=350 />
 ### 文章页面
 
   ![文章页面](https://github.com/closeroop/express-story/blob/master/static/pic/artpage2.png)
