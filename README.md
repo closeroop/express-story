@@ -10,7 +10,7 @@
 ### 个人主页
 
   ![个人主页](https://github.com/closeroop/express-story/blob/master/static/pic/userindext2.png)
-### 个人主页
+### 评论界面
 
 ![评论界面](https://github.com/closeroop/express-story/blob/master/static/pic/comment.png)
 ### 写文章页面
