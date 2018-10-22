@@ -3,13 +3,16 @@
   
 ### 首页
 
-  ![首页](https://github.com/closeroop/express-story/blob/master/static/pic/indexme.png)
+  ![首页](https://github.com/closeroop/express-story/blob/master/static/pic/indexme2.png)
 ### 文章页面
 
-  ![文章页面](https://github.com/closeroop/express-story/blob/master/static/pic/artpage.png)
+  ![文章页面](https://github.com/closeroop/express-story/blob/master/static/pic/artpage2.png)
 ### 个人主页
 
-  ![个人主页](https://github.com/closeroop/express-story/blob/master/static/pic/userindext.png)
+  ![个人主页](https://github.com/closeroop/express-story/blob/master/static/pic/userindext2.png)
+### 个人主页
+
+![评论界面](https://github.com/closeroop/express-story/blob/master/static/pic/comment.png)
 ### 写文章页面
 
   ![写文章页面](https://github.com/closeroop/express-story/blob/master/static/pic/write_page.png)
