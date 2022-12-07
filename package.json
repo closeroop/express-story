@@ -9,11 +9,11 @@
   "author": "y",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "connect-multiparty": "^2.1.0",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
-    "express": "^4.16.3",
+    "express": "^4.18.2",
     "jquery": "^3.3.1",
     "moment": "^2.22.1",
     "multiparty": "^4.1.4",
